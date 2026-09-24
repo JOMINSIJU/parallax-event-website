@@ -61,7 +61,7 @@ export function Rounds() {
                     relative group rounded-2xl border backdrop-blur-md
                     bg-white/[0.02] overflow-hidden
                     transition-all duration-500 ease-out
-                    hover:-translate-y-2 hover:bg-white/[0.04]
+                    hover:-translate-y-2 hover:bg-white/[0.04] hover:scale-[1.04]
                     ${accent.border}
                     hover:shadow-[0_0_50px_-15px] ${accent.glow}
                     h-full flex flex-col

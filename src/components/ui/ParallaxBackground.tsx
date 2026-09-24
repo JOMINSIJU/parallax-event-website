@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 
 /**
  * Layered parallax background with AI-themed neural network,
- * data streams, and floating circuit patterns.
+ * data streams, floating circuit patterns, and mouse interactivity.
  */
 export function ParallaxBackground() {
   const { getParallaxOffset, isEnabled } = useParallax();
@@ -17,14 +17,30 @@ export function ParallaxBackground() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Check reduced motion
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) return;
 
+    // Mouse tracking
+    const mouse = { x: -1000, y: -1000, active: false };
+    const MOUSE_RADIUS = 200;
+    const MOUSE_REPEL = 0.8;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+      mouse.active = true;
+    };
+    const handleMouseLeave = () => { mouse.active = false; };
+
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    document.addEventListener("mouseleave", handleMouseLeave);
+
     interface Particle {
       x: number; y: number;
+      baseX: number; baseY: number;
       vx: number; vy: number;
       radius: number;
+      baseRadius: number;
       color: string;
       pulse: number;
       pulseSpeed: number;
@@ -44,7 +60,9 @@ export function ParallaxBackground() {
       vx: number; vy: number;
       symbol: string;
       opacity: number;
+      baseOpacity: number;
       size: number;
+      baseSize: number;
       pulsePhase: number;
     }
 
@@ -54,18 +72,16 @@ export function ParallaxBackground() {
     let animationFrameId: number;
     let time = 0;
 
-    // Logo-matched color palette
     const colors = {
-      crystalBlue: "56, 189, 248",     // #38bdf8
-      royalBlue: "59, 130, 246",       // #3b82f6
-      deepBlue: "37, 99, 235",         // #2563eb
-      violet: "139, 92, 246",          // #8b5cf6
-      purple: "124, 58, 237",          // #7c3aed
-      magenta: "217, 70, 239",         // #d946ef
-      pink: "236, 72, 153",            // #ec4899
+      crystalBlue: "56, 189, 248",
+      royalBlue: "59, 130, 246",
+      deepBlue: "37, 99, 235",
+      violet: "139, 92, 246",
+      purple: "124, 58, 237",
+      magenta: "217, 70, 239",
+      pink: "236, 72, 153",
       white: "255, 255, 255",
     };
-
     const colorValues = Object.values(colors);
 
     const resize = () => {
@@ -75,24 +91,24 @@ export function ParallaxBackground() {
     };
 
     const initElements = () => {
-      // Neural network nodes
       particles = [];
       const numParticles = Math.floor((canvas.width * canvas.height) / 18000);
       for (let i = 0; i < numParticles; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
         const colorPick = colorValues[Math.floor(Math.random() * colorValues.length)];
+        const r = Math.random() * 2 + 0.5;
         particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
+          x, y, baseX: x, baseY: y,
           vx: (Math.random() - 0.5) * 0.4,
           vy: (Math.random() - 0.5) * 0.4,
-          radius: Math.random() * 2 + 0.5,
+          radius: r, baseRadius: r,
           color: colorPick,
           pulse: Math.random() * Math.PI * 2,
           pulseSpeed: 0.02 + Math.random() * 0.03,
         });
       }
 
-      // Data streams (matrix-like falling text)
       dataStreams = [];
       const numStreams = Math.floor(canvas.width / 120);
       const aiChars = ["0", "1", "A", "I", "▪", "◆", "⬡", "⊡", "◇", "∞", "λ", "Σ", "π", "∂"];
@@ -113,19 +129,20 @@ export function ParallaxBackground() {
         });
       }
 
-      // Floating AI symbols
       floatingSymbols = [];
       const symbols = ["⬡", "◇", "△", "○", "□", "⊕", "⊗", "∿", "⚡"];
       const numSymbols = Math.floor(canvas.width / 200);
       for (let i = 0; i < numSymbols; i++) {
+        const op = 0.04 + Math.random() * 0.06;
+        const sz = 16 + Math.random() * 24;
         floatingSymbols.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           vx: (Math.random() - 0.5) * 0.15,
           vy: (Math.random() - 0.5) * 0.15,
           symbol: symbols[Math.floor(Math.random() * symbols.length)],
-          opacity: 0.04 + Math.random() * 0.06,
-          size: 16 + Math.random() * 24,
+          opacity: op, baseOpacity: op,
+          size: sz, baseSize: sz,
           pulsePhase: Math.random() * Math.PI * 2,
         });
       }
@@ -135,12 +152,32 @@ export function ParallaxBackground() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       time += 0.016;
 
-      // ── Draw data streams ──
+      // ── Mouse glow cursor ──
+      if (mouse.active) {
+        const gradient = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, MOUSE_RADIUS);
+        gradient.addColorStop(0, "rgba(139, 92, 246, 0.06)");
+        gradient.addColorStop(0.5, "rgba(56, 189, 248, 0.03)");
+        gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
+        ctx.fillStyle = gradient;
+        ctx.fillRect(mouse.x - MOUSE_RADIUS, mouse.y - MOUSE_RADIUS, MOUSE_RADIUS * 2, MOUSE_RADIUS * 2);
+      }
+
+      // ── Data streams ──
       dataStreams.forEach((stream) => {
         stream.y += stream.speed;
         if (stream.y > canvas.height + 200) {
           stream.y = -200;
           stream.x = Math.random() * canvas.width;
+        }
+
+        // Mouse influence on streams — push away
+        if (mouse.active) {
+          const dx = stream.x - mouse.x;
+          const dy = stream.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < MOUSE_RADIUS * 0.8) {
+            stream.x += (dx / dist) * 0.5;
+          }
         }
 
         stream.chars.forEach((char, i) => {
@@ -153,7 +190,7 @@ export function ParallaxBackground() {
         });
       });
 
-      // ── Draw floating symbols ──
+      // ── Floating symbols — enlarge near mouse ──
       floatingSymbols.forEach((sym) => {
         sym.x += sym.vx;
         sym.y += sym.vy;
@@ -163,13 +200,30 @@ export function ParallaxBackground() {
         if (sym.y < -50) sym.y = canvas.height + 50;
         if (sym.y > canvas.height + 50) sym.y = -50;
 
-        const pulseOpacity = sym.opacity * (0.6 + 0.4 * Math.sin(sym.pulsePhase));
-        ctx.font = `${sym.size}px sans-serif`;
+        // Mouse proximity — enlarge and brighten
+        let scaleFactor = 1;
+        let opacityBoost = 0;
+        if (mouse.active) {
+          const dx = sym.x - mouse.x;
+          const dy = sym.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < MOUSE_RADIUS) {
+            const closeness = 1 - dist / MOUSE_RADIUS;
+            scaleFactor = 1 + closeness * 1.5;
+            opacityBoost = closeness * 0.15;
+            // Gentle push away
+            sym.x += (dx / dist) * closeness * 0.3;
+            sym.y += (dy / dist) * closeness * 0.3;
+          }
+        }
+
+        const pulseOpacity = (sym.baseOpacity + opacityBoost) * (0.6 + 0.4 * Math.sin(sym.pulsePhase));
+        ctx.font = `${sym.baseSize * scaleFactor}px sans-serif`;
         ctx.fillStyle = `rgba(${colors.violet}, ${pulseOpacity})`;
         ctx.fillText(sym.symbol, sym.x, sym.y);
       });
 
-      // ── Draw neural network nodes ──
+      // ── Neural network nodes — react to mouse ──
       particles.forEach((p) => {
         p.x += p.vx;
         p.y += p.vy;
@@ -178,23 +232,42 @@ export function ParallaxBackground() {
         if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
-        const pulseRadius = p.radius * (0.8 + 0.4 * Math.sin(p.pulse));
-        const glowOpacity = 0.5 + 0.3 * Math.sin(p.pulse);
+        // Mouse interaction — attract slightly + enlarge
+        let mouseInfluence = 0;
+        if (mouse.active) {
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < MOUSE_RADIUS) {
+            mouseInfluence = 1 - dist / MOUSE_RADIUS;
+            // Gentle repulsion
+            const force = mouseInfluence * MOUSE_REPEL;
+            p.vx += (dx / dist) * force * 0.1;
+            p.vy += (dy / dist) * force * 0.1;
+            // Dampen velocity
+            p.vx *= 0.98;
+            p.vy *= 0.98;
+          }
+        }
 
-        // Outer glow
+        const enlargedRadius = p.baseRadius * (1 + mouseInfluence * 2);
+        const pulseRadius = enlargedRadius * (0.8 + 0.4 * Math.sin(p.pulse));
+        const glowOpacity = (0.5 + 0.3 * Math.sin(p.pulse)) + mouseInfluence * 0.4;
+
+        // Outer glow — bigger near mouse
         ctx.beginPath();
-        ctx.arc(p.x, p.y, pulseRadius * 3, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${p.color}, ${glowOpacity * 0.08})`;
+        ctx.arc(p.x, p.y, pulseRadius * (3 + mouseInfluence * 4), 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.color}, ${glowOpacity * 0.08 + mouseInfluence * 0.04})`;
         ctx.fill();
 
         // Core dot
         ctx.beginPath();
         ctx.arc(p.x, p.y, pulseRadius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${p.color}, ${glowOpacity})`;
+        ctx.fillStyle = `rgba(${p.color}, ${Math.min(1, glowOpacity)})`;
         ctx.fill();
       });
 
-      // ── Draw connections ──
+      // ── Connections — brighter near mouse ──
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -202,8 +275,18 @@ export function ParallaxBackground() {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < 140) {
-            const alpha = 0.25 * (1 - distance / 140);
-            // Gradient connection lines
+            let alpha = 0.25 * (1 - distance / 140);
+
+            // Boost connections near mouse
+            if (mouse.active) {
+              const midX = (particles[i].x + particles[j].x) / 2;
+              const midY = (particles[i].y + particles[j].y) / 2;
+              const mouseDist = Math.sqrt((midX - mouse.x) ** 2 + (midY - mouse.y) ** 2);
+              if (mouseDist < MOUSE_RADIUS) {
+                alpha += 0.3 * (1 - mouseDist / MOUSE_RADIUS);
+              }
+            }
+
             const gradient = ctx.createLinearGradient(
               particles[i].x, particles[i].y,
               particles[j].x, particles[j].y
@@ -215,13 +298,13 @@ export function ParallaxBackground() {
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.strokeStyle = gradient;
-            ctx.lineWidth = 0.6;
+            ctx.lineWidth = 0.6 + alpha * 1.5;
             ctx.stroke();
           }
         }
       }
 
-      // ── Draw pulsing rings (like AI processing signals) ──
+      // ── Pulsing rings ──
       const numRings = 3;
       for (let r = 0; r < numRings; r++) {
         const ringPhase = time * 0.3 + (r * Math.PI * 2) / numRings;
@@ -237,6 +320,22 @@ export function ParallaxBackground() {
         ctx.stroke();
       }
 
+      // ── Mouse ripple ring ──
+      if (mouse.active) {
+        const rippleRadius = 30 + Math.sin(time * 3) * 10;
+        ctx.beginPath();
+        ctx.arc(mouse.x, mouse.y, rippleRadius, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(${colors.violet}, 0.08)`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(mouse.x, mouse.y, rippleRadius * 1.8, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(${colors.crystalBlue}, 0.04)`;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+
       animationFrameId = requestAnimationFrame(draw);
     };
 
@@ -246,16 +345,16 @@ export function ParallaxBackground() {
 
     return () => {
       window.removeEventListener("resize", resize);
+      window.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseleave", handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
-      {/* Base — deep black */}
       <div className="absolute inset-0 bg-[#030308]" />
 
-      {/* Grid pattern — subtle blueprint */}
       <div
         className="absolute inset-0 opacity-[0.025]"
         style={{
@@ -268,35 +367,27 @@ export function ParallaxBackground() {
         }}
       />
 
-      {/* AI Canvas — neural network + data streams + symbols */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-auto"
         style={{
           transform: isEnabled ? `translateY(${getParallaxOffset(0.05)}px)` : undefined,
         }}
       />
 
-      {/* Radial gradient orbs — logo color palette */}
       <div
         className="absolute inset-0"
         style={{
           transform: isEnabled ? `translateY(${getParallaxOffset(0.08)}px)` : undefined,
         }}
       >
-        {/* Deep navy base orb */}
         <div className="absolute top-[5%] left-[5%] w-[700px] h-[700px] rounded-full bg-[#1e1b4b] blur-[150px] opacity-50" />
-        {/* Crystal blue orb */}
         <div className="absolute top-[15%] right-[15%] w-[500px] h-[500px] rounded-full bg-[#38bdf8] blur-[150px] opacity-[0.07]" />
-        {/* Violet/purple orb */}
         <div className="absolute top-[50%] left-[30%] w-[450px] h-[450px] rounded-full bg-[#7c3aed] blur-[130px] opacity-[0.06]" />
-        {/* Magenta/pink orb */}
         <div className="absolute bottom-[10%] right-[20%] w-[350px] h-[350px] rounded-full bg-[#d946ef] blur-[120px] opacity-[0.05]" />
-        {/* Royal blue orb */}
         <div className="absolute bottom-[30%] left-[10%] w-[400px] h-[400px] rounded-full bg-[#2563eb] blur-[130px] opacity-[0.06]" />
       </div>
 
-      {/* Subtle noise texture overlay */}
       <div
         className="absolute inset-0 opacity-[0.02]"
         style={{

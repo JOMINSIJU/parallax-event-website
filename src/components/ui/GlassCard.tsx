@@ -26,8 +26,9 @@ export function GlassCard({
           "transition-all duration-500 ease-out",
           "hover:border-[#8b5cf6]/30",
           "hover:bg-white/[0.05]",
-          "hover:shadow-[0_0_40px_-10px_rgba(139,92,246,0.15)]",
-          "hover:-translate-y-1",
+          "hover:shadow-[0_0_40px_-10px_rgba(139,92,246,0.2)]",
+          "hover:-translate-y-2",
+          "hover:scale-[1.03]",
         ],
         className
       )}
