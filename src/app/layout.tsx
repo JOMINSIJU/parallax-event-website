@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { EB_Garamond, Sorts_Mill_Goudy, JetBrains_Mono } from "next/font/google";
 import { EVENT_CONFIG } from "@/data/event-config";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const ebGaramond = EB_Garamond({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
 });
 
-const inter = Inter({
+const sortsMillGoudy = Sorts_Mill_Goudy({
   subsets: ["latin"],
-  variable: "--font-sans",
+  weight: "400",
+  variable: "--font-body",
   display: "swap",
 });
 
@@ -62,9 +63,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`scroll-smooth ${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+      className={`scroll-smooth ${ebGaramond.variable} ${sortsMillGoudy.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="bg-[#0a0a12] text-slate-100 antialiased font-sans">
+      <body className="bg-[#050505] text-slate-100 antialiased">
         {children}
       </body>
     </html>

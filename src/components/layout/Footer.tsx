@@ -4,15 +4,15 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-white/[0.06] bg-[#06060e]" role="contentinfo">
+    <footer className="relative border-t border-white/[0.06] bg-[#030308]" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {/* Brand Column */}
           <div className="md:col-span-1">
-            <h3 className="text-2xl font-bold tracking-[0.15em] text-white mb-2">
+            <h3 className="text-2xl font-display font-bold tracking-[0.15em] text-white mb-2">
               {EVENT_CONFIG.name}
             </h3>
-            <p className="text-sm font-mono tracking-[0.2em] text-indigo-400/60 uppercase mb-4">
+            <p className="text-sm font-mono tracking-[0.2em] text-[#0ea5e9]/60 uppercase mb-4">
               {EVENT_CONFIG.type}
             </p>
             <p className="text-sm text-slate-500 leading-relaxed">
@@ -46,21 +46,19 @@ export function Footer() {
             </h4>
             <ul className="space-y-3 text-sm text-slate-400">
               <li className="flex items-start gap-2">
-                <span className="text-indigo-400 mt-0.5">◆</span>
+                <span className="text-[#0ea5e9] mt-0.5">◆</span>
                 <span>{EVENT_CONFIG.date}</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-indigo-400 mt-0.5">◆</span>
-                <span>{EVENT_CONFIG.venue.hall}</span>
+                <span className="text-[#0ea5e9] mt-0.5">◆</span>
+                <span>{EVENT_CONFIG.venue.hall}, {EVENT_CONFIG.venue.floor}, {EVENT_CONFIG.venue.block}</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-indigo-400 mt-0.5">◆</span>
-                <span>
-                  {EVENT_CONFIG.venue.floor}, {EVENT_CONFIG.venue.block}
-                </span>
+                <span className="text-[#0ea5e9] mt-0.5">◆</span>
+                <span>{EVENT_CONFIG.venue.campus}, {EVENT_CONFIG.venue.area}</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-indigo-400 mt-0.5">◆</span>
+                <span className="text-[#0ea5e9] mt-0.5">◆</span>
                 <span>{EVENT_CONFIG.venue.institution}</span>
               </li>
             </ul>
@@ -71,8 +69,7 @@ export function Footer() {
         <div className="mt-16 pt-8 border-t border-white/[0.04]">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-slate-600">
-              &copy; {currentYear} {EVENT_CONFIG.name} •{" "}
-              {EVENT_CONFIG.institution.name}
+              &copy; {currentYear} {EVENT_CONFIG.name} • {EVENT_CONFIG.institution.name}
             </p>
             <p className="text-xs text-slate-600 font-mono tracking-wider">
               {EVENT_CONFIG.type} • {EVENT_CONFIG.date}

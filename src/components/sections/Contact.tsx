@@ -15,7 +15,6 @@ export function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimateOnScroll>
           <SectionHeading
-            label="// Contact"
             title="Get in Touch"
             subtitle="Have questions? Reach out to the event coordinators"
           />
@@ -24,46 +23,39 @@ export function Contact() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           {EVENT_CONFIG.contacts.map((contact, index) => (
             <AnimateOnScroll
-              key={contact.role}
+              key={contact.name}
               delay={index * 150}
               variant="fade-up"
             >
               <GlassCard className="p-8" variant="subtle">
-                {/* Role badge */}
-                <span className="inline-block text-[10px] font-mono tracking-[0.3em] text-indigo-400/60 uppercase mb-4 px-3 py-1 rounded-full border border-indigo-500/15 bg-indigo-500/5">
+                <span className="inline-block text-[10px] font-mono tracking-[0.3em] text-[#0ea5e9]/60 uppercase mb-4 px-3 py-1 rounded-full border border-[#0ea5e9]/15 bg-[#0ea5e9]/5">
                   {contact.role}
                 </span>
 
-                {/* Name */}
-                <h3 className="text-lg font-semibold text-white mb-4">
+                <h3 className="text-lg font-display font-semibold text-white mb-4">
                   {contact.name}
                 </h3>
 
-                {/* Contact details */}
                 <div className="space-y-2">
                   <p className="text-sm text-slate-400 flex items-center gap-2">
-                    <span className="text-indigo-400/60" aria-hidden="true">
-                      ☎
-                    </span>
-                    <span>{contact.phone}</span>
+                    <span className="text-[#0ea5e9]/60" aria-hidden="true">☎</span>
+                    <a
+                      href={`tel:${contact.phone.replace(/\s/g, "")}`}
+                      className="hover:text-white transition-colors"
+                    >
+                      {contact.phone}
+                    </a>
                   </p>
                   <p className="text-sm text-slate-400 flex items-center gap-2">
-                    <span className="text-indigo-400/60" aria-hidden="true">
-                      ✉
-                    </span>
-                    <span>{contact.email}</span>
+                    <span className="text-[#0ea5e9]/60" aria-hidden="true">✉</span>
+                    <a
+                      href={`mailto:${contact.email}`}
+                      className="hover:text-white transition-colors"
+                    >
+                      {contact.email}
+                    </a>
                   </p>
                 </div>
-
-                {/* Placeholder notice */}
-                {contact.name === "To Be Announced" && (
-                  <div className="mt-4 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400/40 animate-pulse" />
-                    <span className="text-[10px] font-mono tracking-wider text-slate-600 uppercase">
-                      Details coming soon
-                    </span>
-                  </div>
-                )}
               </GlassCard>
             </AnimateOnScroll>
           ))}

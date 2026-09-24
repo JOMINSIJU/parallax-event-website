@@ -25,11 +25,11 @@ export function SectionHeading({
       )}
     >
       {label && (
-        <span className="font-mono text-sm tracking-[0.3em] text-cyan-400 uppercase mb-4 block">
+        <span className="font-mono text-sm tracking-[0.3em] text-[#0ea5e9] uppercase mb-4 block">
           {label}
         </span>
       )}
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white tracking-tight">
         {title}
       </h2>
       {subtitle && (
@@ -39,7 +39,7 @@ export function SectionHeading({
       )}
       <div
         className={cn(
-          "mt-6 h-px w-20 bg-gradient-to-r from-indigo-500 to-cyan-500",
+          "mt-6 h-px w-20 bg-gradient-to-r from-[#0ea5e9] to-[#d946ef]",
           align === "center" && "mx-auto"
         )}
         aria-hidden="true"

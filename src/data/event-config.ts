@@ -9,69 +9,89 @@ export const EVENT_CONFIG = {
   // ── Core Identity ──────────────────────────────────────────────────────
   name: "PARALLAX",
   type: "Promptathon",
-  tagline: "Where Prompts Meet Possibility",
-  date: "14 October",
-  year: "2025",
+  tagline: "Decode, Recreate, Create.",
+  date: "16th October",
+  year: "2026",
+  fullEventLine: "Inter Collegiate Promptathon Fest on 16th October 2026",
 
   // ── Institution ────────────────────────────────────────────────────────
   institution: {
     name: "Kristu Jayanti Deemed To Be University",
     shortName: "KJDBU",
+    school: "School of Computational and Physical Sciences",
+    department: "Department of Computational Studies",
+  },
+
+  // ── Club ────────────────────────────────────────────────────────────────
+  club: {
+    name: "AIVORA",
+    tagline: "AI & Machine Learning Club",
+    description: [
+      "Aivora is the AI and Machine Learning Club of the School of Computational and Physical Sciences, Department of Computational Studies at Kristu Jayanti Deemed to be University, created to bring together students passionate about Artificial Intelligence, Machine Learning, and emerging technologies.",
+      "Through technical events, workshops, competitions, research initiatives, and hands-on learning, Aivora provides a platform for students to learn, experiment, collaborate, and build with AI.",
+    ],
   },
 
   // ── Venue ──────────────────────────────────────────────────────────────
   venue: {
-    hall: "M1 Auditorium",
+    hall: "M1 AUDI",
     floor: "1st Floor",
     block: "Main Block",
+    campus: "Central Campus",
+    area: "K. Narayanapura, Kothanur",
     institution: "Kristu Jayanti Deemed To Be University",
-    full: "M1 Auditorium, 1st Floor, Main Block, Kristu Jayanti Deemed To Be University",
+    full: "M1 AUDI, 1st Floor, Main Block, Central Campus, K. Narayanapura, Kothanur",
+    mapEmbedUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.1726553029207!2d77.64949!3d13.06847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae19555555555%3A0x70db5363b0d3cc9c!2sKristu%20Jayanti%20College!5e0!3m2!1sen!2sin!4v1695000000000!5m2!1sen!2sin",
+    mapUrl: "https://maps.google.com/?q=Kristu+Jayanti+College+Bangalore",
   },
 
   // ── Registration ───────────────────────────────────────────────────────
   // PLACEHOLDER: Replace this URL with the actual registration link
   registrationUrl: "#",
 
+  // ── Brochure ───────────────────────────────────────────────────────────
+  // PLACEHOLDER: Replace with the actual brochure PDF URL
+  brochureUrl: "#",
+
   // ── About Section ──────────────────────────────────────────────────────
-  // PLACEHOLDER: Replace with the official event description
   about: {
     title: "What is PARALLAX?",
     paragraphs: [
-      "PARALLAX is an electrifying Promptathon that challenges participants to harness the power of AI through creative and strategic prompt engineering. Compete across three intense rounds designed to test your ability to communicate with cutting-edge AI systems.",
+      "PARALLAX is a Generative AI and Prompt Engineering competition that challenges participants to think beyond conventional approaches. Compete across three intense rounds designed to test your ability to communicate with cutting-edge AI systems.",
       "Whether you're a seasoned prompt engineer or just beginning to explore the world of AI, PARALLAX offers a platform to showcase your skills, learn from peers, and push the boundaries of what's possible with intelligent systems.",
     ],
   },
 
   // ── Rounds ─────────────────────────────────────────────────────────────
-  // PLACEHOLDER: Replace titles and descriptions with official round details
   rounds: [
     {
       number: "01",
-      title: "Round Title — Coming Soon",
+      title: "Cipher",
       description:
-        "Round details will be announced soon. Stay tuned for the official brochure with complete round information.",
-      tags: ["Details TBA"],
+        "One idea, two minds, one chain of prompts. Interpret, transform, and communicate an idea through AI without ever seeing the original prompt.",
+      tags: ["Teamwork", "Prompt Chaining", "Communication"],
     },
     {
       number: "02",
-      title: "Round Title — Coming Soon",
+      title: "Aperture",
       description:
-        "Round details will be announced soon. Stay tuned for the official brochure with complete round information.",
-      tags: ["Details TBA"],
+        "Think within limits, create beyond them, build powerful prompts while navigating unexpected twists.",
+      tags: ["Creativity", "Constraints", "Adaptability"],
     },
     {
       number: "03",
-      title: "Round Title — Coming Soon",
+      title: "Catalyst",
       description:
-        "Round details will be announced soon. Stay tuned for the official brochure with complete round information.",
-      tags: ["Details TBA"],
+        "Turn a real-world problem into an AI-powered solution. Refine your prompts, build a solution, and present your idea to the judges.",
+      tags: ["Problem Solving", "Innovation", "Presentation"],
     },
   ],
 
   // ── Prizes ─────────────────────────────────────────────────────────────
   // PLACEHOLDER: Replace with official prize information when available
   prizes: {
-    status: "coming-soon" as const, // Change to "announced" when prizes are confirmed
+    status: "coming-soon" as const,
     headline: "Prizes — Coming Soon",
     items: [
       {
@@ -92,66 +112,65 @@ export const EVENT_CONFIG = {
     ],
   },
 
-  // ── Rules & Guidelines ─────────────────────────────────────────────────
-  // PLACEHOLDER: Replace with official rules when available
-  rules: [
-    "Official rules and guidelines will be published soon.",
-    "Eligibility requirements will be announced with the official brochure.",
-    "Team size and format details are coming soon.",
-    "Please check back for updates or follow our announcements.",
-  ],
+  // ── Sponsors ───────────────────────────────────────────────────────────
+  // PLACEHOLDER: Replace with actual sponsor details when available
+  sponsors: {
+    status: "coming-soon" as const,
+    headline: "Our Sponsors",
+    items: [] as { name: string; logo: string; tier: string }[],
+  },
 
   // ── Contact ────────────────────────────────────────────────────────────
-  // PLACEHOLDER: Replace with actual contact details
   contacts: [
     {
       role: "Contact Person 1",
-      name: "To Be Announced",
-      phone: "—",
-      email: "—",
+      name: "Justin Johnson",
+      phone: "+91 7696811958",
+      email: "24aiml27@kristujayanti.com",
     },
     {
       role: "Contact Person 2",
-      name: "To Be Announced",
-      phone: "—",
-      email: "—",
+      name: "Fathimath Rifa",
+      phone: "+91 7411872026",
+      email: "24aiml20@kristujayanti.com",
     },
   ],
 
   // ── Assets / Logos ─────────────────────────────────────────────────────
-  // Replace these paths with actual logo files when provided
   logos: {
-    university: "/assets/logos/university-logo.svg",
-    parallax: "/assets/logos/parallax-logo.svg",
+    university: "/assets/logos/kju-banner.png",
+    parallax: "/assets/logos/parallax-logo.jpg",
   },
 
   // ── Navigation ─────────────────────────────────────────────────────────
   navLinks: [
     { label: "Home", href: "#hero" },
     { label: "About", href: "#about" },
+    { label: "AIVORA", href: "#club" },
     { label: "Details", href: "#details" },
     { label: "Rounds", href: "#rounds" },
     { label: "Prizes", href: "#prizes" },
-    { label: "Rules", href: "#rules" },
     { label: "Contact", href: "#contact" },
   ],
 
   // ── SEO / Meta ─────────────────────────────────────────────────────────
   meta: {
-    title: "PARALLAX — Promptathon | Kristu Jayanti Deemed To Be University",
+    title: "PARALLAX 2026 — Promptathon | Kristu Jayanti Deemed To Be University",
     description:
-      "PARALLAX is a Promptathon event on 14 October at Kristu Jayanti Deemed To Be University. Compete across three rounds of AI prompt engineering challenges.",
+      "PARALLAX is an Inter Collegiate Promptathon Fest on 16th October 2026 at Kristu Jayanti Deemed To Be University. Compete across three rounds of AI prompt engineering challenges.",
     keywords: [
       "PARALLAX",
       "Promptathon",
       "AI",
       "Prompt Engineering",
+      "Generative AI",
       "Kristu Jayanti",
       "University Event",
       "Tech Event",
       "Hackathon",
+      "AIVORA",
     ],
-    ogImage: "/assets/og-image.png",
+    ogImage: "/assets/logos/parallax-logo.jpg",
   },
 } as const;
 

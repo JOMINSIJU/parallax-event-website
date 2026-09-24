@@ -5,28 +5,28 @@ import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 /** Gradient accent colors for each round card */
 const roundAccents = [
   {
-    gradient: "from-indigo-500 to-violet-500",
-    glow: "indigo",
-    border: "border-indigo-500/20 hover:border-indigo-500/40",
-    shadow: "hover:shadow-indigo-500/10",
-    number: "text-indigo-400",
-    tagBg: "bg-indigo-500/10 text-indigo-300 border-indigo-500/20",
+    gradient: "from-[#0ea5e9] to-[#6366f1]",
+    glow: "shadow-[#0ea5e9]/10",
+    border: "border-[#0ea5e9]/20 hover:border-[#0ea5e9]/50",
+    number: "text-[#0ea5e9]",
+    tagBg: "bg-[#0ea5e9]/10 text-[#0ea5e9] border-[#0ea5e9]/20",
+    headerBg: "bg-gradient-to-br from-[#0ea5e9]/10 to-transparent",
   },
   {
-    gradient: "from-cyan-500 to-blue-500",
-    glow: "cyan",
-    border: "border-cyan-500/20 hover:border-cyan-500/40",
-    shadow: "hover:shadow-cyan-500/10",
-    number: "text-cyan-400",
-    tagBg: "bg-cyan-500/10 text-cyan-300 border-cyan-500/20",
+    gradient: "from-[#d946ef] to-[#a855f7]",
+    glow: "shadow-[#d946ef]/10",
+    border: "border-[#d946ef]/20 hover:border-[#d946ef]/50",
+    number: "text-[#d946ef]",
+    tagBg: "bg-[#d946ef]/10 text-[#d946ef] border-[#d946ef]/20",
+    headerBg: "bg-gradient-to-br from-[#d946ef]/10 to-transparent",
   },
   {
-    gradient: "from-violet-500 to-fuchsia-500",
-    glow: "violet",
-    border: "border-violet-500/20 hover:border-violet-500/40",
-    shadow: "hover:shadow-violet-500/10",
-    number: "text-violet-400",
-    tagBg: "bg-violet-500/10 text-violet-300 border-violet-500/20",
+    gradient: "from-[#a855f7] to-[#0ea5e9]",
+    glow: "shadow-[#a855f7]/10",
+    border: "border-[#a855f7]/20 hover:border-[#a855f7]/50",
+    number: "text-[#a855f7]",
+    tagBg: "bg-[#a855f7]/10 text-[#a855f7] border-[#a855f7]/20",
+    headerBg: "bg-gradient-to-br from-[#a855f7]/10 to-transparent",
   },
 ];
 
@@ -42,8 +42,7 @@ export function Rounds() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimateOnScroll>
           <SectionHeading
-            label="// Rounds"
-            title="Three Rounds"
+            title="The Rounds"
             subtitle="Compete through three challenging rounds of prompt engineering"
           />
         </AnimateOnScroll>
@@ -64,7 +63,7 @@ export function Rounds() {
                     transition-all duration-500 ease-out
                     hover:-translate-y-2 hover:bg-white/[0.04]
                     ${accent.border}
-                    hover:shadow-[0_0_50px_-15px] ${accent.shadow}
+                    hover:shadow-[0_0_50px_-15px] ${accent.glow}
                     h-full flex flex-col
                   `}
                 >
@@ -73,29 +72,25 @@ export function Rounds() {
                     className={`h-1 bg-gradient-to-r ${accent.gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-500`}
                   />
 
-                  <div className="p-8 flex flex-col flex-1">
-                    {/* Round number */}
-                    <div className="mb-6">
-                      <span
-                        className={`font-mono text-5xl font-bold ${accent.number} opacity-30 group-hover:opacity-50 transition-opacity duration-500`}
-                      >
-                        {round.number}
-                      </span>
-                    </div>
-
-                    {/* Round label */}
-                    <p className="text-[10px] font-mono tracking-[0.4em] text-slate-600 uppercase mb-2">
-                      Round {round.number}
-                    </p>
+                  {/* Card header area */}
+                  <div className={`p-8 pb-4 ${accent.headerBg}`}>
+                    {/* Round number — large decorative */}
+                    <span
+                      className={`font-mono text-6xl font-bold ${accent.number} opacity-20 group-hover:opacity-40 transition-opacity duration-500`}
+                    >
+                      {round.number}
+                    </span>
 
                     {/* Round title */}
-                    <h3 className="text-xl font-semibold text-white mb-4 leading-tight">
+                    <h3 className="text-2xl font-display font-bold text-white mt-2 tracking-wide">
                       {round.title}
                     </h3>
+                  </div>
 
+                  <div className="p-8 pt-4 flex flex-col flex-1">
                     {/* Description */}
-                    <p className="text-sm text-slate-400 leading-relaxed mb-6 flex-1">
-                      {round.description}
+                    <p className="text-sm text-slate-400 leading-relaxed mb-6 flex-1 italic">
+                      &ldquo;{round.description}&rdquo;
                     </p>
 
                     {/* Tags */}
@@ -115,6 +110,23 @@ export function Rounds() {
             );
           })}
         </div>
+
+        {/* View Full Round Details — Brochure Button */}
+        <AnimateOnScroll variant="fade-up" delay={500}>
+          <div className="text-center mt-14">
+            <a
+              href={EVENT_CONFIG.brochureUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 px-8 py-4 text-sm font-mono tracking-[0.15em] text-white uppercase rounded-xl border border-[#0ea5e9]/30 bg-white/[0.03] hover:bg-[#0ea5e9]/10 hover:border-[#0ea5e9]/50 transition-all duration-500 hover:-translate-y-0.5"
+            >
+              <span>View Full Round Details</span>
+              <span className="transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </a>
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

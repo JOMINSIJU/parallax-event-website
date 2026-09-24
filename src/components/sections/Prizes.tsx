@@ -17,7 +17,6 @@ export function Prizes() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimateOnScroll>
           <SectionHeading
-            label="// Prizes"
             title={prizes.headline}
             subtitle={
               prizes.status === "coming-soon"
@@ -38,32 +37,25 @@ export function Prizes() {
                 }`}
                 variant={index === 0 ? "accent" : "default"}
               >
-                {/* Icon */}
                 <div className="text-5xl mb-6" aria-hidden="true">
                   {prize.icon}
                 </div>
-
-                {/* Place */}
-                <h3 className="text-lg font-semibold text-white mb-2">
+                <h3 className="text-lg font-display font-semibold text-white mb-2">
                   {prize.place}
                 </h3>
-
-                {/* Prize value */}
                 <p
                   className={`text-sm font-mono tracking-wider ${
                     prizes.status === "coming-soon"
                       ? "text-slate-500"
-                      : "text-indigo-400 text-xl font-bold"
+                      : "text-[#0ea5e9] text-xl font-bold"
                   }`}
                 >
                   {prize.prize}
                 </p>
-
-                {/* Coming soon indicator */}
                 {prizes.status === "coming-soon" && (
-                  <div className="mt-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20">
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-                    <span className="text-[10px] font-mono tracking-wider text-indigo-300 uppercase">
+                  <div className="mt-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0ea5e9]/10 border border-[#0ea5e9]/20">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0ea5e9] animate-pulse" />
+                    <span className="text-[10px] font-mono tracking-wider text-[#0ea5e9] uppercase">
                       Coming Soon
                     </span>
                   </div>

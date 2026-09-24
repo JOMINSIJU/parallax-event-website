@@ -16,39 +16,26 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on resize
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setIsMobileMenuOpen(false);
-      }
+      if (window.innerWidth >= 768) setIsMobileMenuOpen(false);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [isMobileMenuOpen]);
 
-  const handleNavClick = () => {
-    setIsMobileMenuOpen(false);
-  };
+  const handleNavClick = () => setIsMobileMenuOpen(false);
 
   return (
     <>
-      {/* Skip to content link */}
       <a
         href="#about"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg focus:outline-none"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#0ea5e9] focus:text-white focus:rounded-lg focus:outline-none"
       >
         Skip to main content
       </a>
@@ -57,7 +44,7 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled
-            ? "bg-[#0a0a12]/80 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/20"
+            ? "bg-[#050505]/80 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/20"
             : "bg-transparent"
         )}
         role="banner"
@@ -74,10 +61,10 @@ export function Navbar() {
               className="flex items-center gap-3 group"
               aria-label={`${EVENT_CONFIG.name} — Back to top`}
             >
-              <span className="text-xl font-bold tracking-[0.15em] text-white group-hover:text-indigo-400 transition-colors duration-300">
+              <span className="text-xl font-display font-bold tracking-[0.15em] text-white group-hover:text-[#0ea5e9] transition-colors duration-300">
                 {EVENT_CONFIG.name}
               </span>
-              <span className="hidden sm:inline-block text-[10px] font-mono tracking-[0.2em] text-indigo-400/60 uppercase border border-indigo-500/20 rounded px-2 py-0.5">
+              <span className="hidden sm:inline-block text-[10px] font-mono tracking-[0.2em] text-[#0ea5e9]/60 uppercase border border-[#0ea5e9]/20 rounded px-2 py-0.5">
                 {EVENT_CONFIG.type}
               </span>
             </a>
@@ -93,14 +80,6 @@ export function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <a
-                href={EVENT_CONFIG.registrationUrl}
-                className="ml-3 px-5 py-2 text-sm font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-500 transition-all duration-300 shadow-lg shadow-indigo-600/20 hover:shadow-indigo-500/30 hover:-translate-y-0.5"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Register
-              </a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -112,24 +91,9 @@ export function Navbar() {
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             >
               <div className="w-5 flex flex-col gap-1.5">
-                <span
-                  className={cn(
-                    "h-0.5 bg-white rounded-full transition-all duration-300 origin-center",
-                    isMobileMenuOpen && "rotate-45 translate-y-[4px]"
-                  )}
-                />
-                <span
-                  className={cn(
-                    "h-0.5 bg-white rounded-full transition-all duration-300",
-                    isMobileMenuOpen && "opacity-0 scale-x-0"
-                  )}
-                />
-                <span
-                  className={cn(
-                    "h-0.5 bg-white rounded-full transition-all duration-300 origin-center",
-                    isMobileMenuOpen && "-rotate-45 -translate-y-[4px]"
-                  )}
-                />
+                <span className={cn("h-0.5 bg-white rounded-full transition-all duration-300 origin-center", isMobileMenuOpen && "rotate-45 translate-y-[4px]")} />
+                <span className={cn("h-0.5 bg-white rounded-full transition-all duration-300", isMobileMenuOpen && "opacity-0 scale-x-0")} />
+                <span className={cn("h-0.5 bg-white rounded-full transition-all duration-300 origin-center", isMobileMenuOpen && "-rotate-45 -translate-y-[4px]")} />
               </div>
             </button>
           </nav>
@@ -139,10 +103,8 @@ export function Navbar() {
         <div
           id="mobile-menu"
           className={cn(
-            "md:hidden fixed inset-x-0 top-16 bottom-0 bg-[#0a0a12]/95 backdrop-blur-xl transition-all duration-500 ease-out",
-            isMobileMenuOpen
-              ? "opacity-100 translate-y-0 pointer-events-auto"
-              : "opacity-0 -translate-y-4 pointer-events-none"
+            "md:hidden fixed inset-x-0 top-16 bottom-0 bg-[#050505]/95 backdrop-blur-xl transition-all duration-500 ease-out",
+            isMobileMenuOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-4 pointer-events-none"
           )}
           aria-hidden={!isMobileMenuOpen}
         >
@@ -152,31 +114,18 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={handleNavClick}
-                className="text-2xl font-medium text-slate-300 hover:text-white transition-colors duration-300"
+                className="text-2xl font-display font-medium text-slate-300 hover:text-white transition-colors duration-300"
                 style={{
                   transitionDelay: isMobileMenuOpen ? `${i * 50}ms` : "0ms",
                   opacity: isMobileMenuOpen ? 1 : 0,
-                  transform: isMobileMenuOpen
-                    ? "translateY(0)"
-                    : "translateY(10px)",
-                  transition:
-                    "opacity 400ms ease, transform 400ms ease, color 300ms ease",
+                  transform: isMobileMenuOpen ? "translateY(0)" : "translateY(10px)",
+                  transition: "opacity 400ms ease, transform 400ms ease, color 300ms ease",
                 }}
                 tabIndex={isMobileMenuOpen ? 0 : -1}
               >
                 {link.label}
               </a>
             ))}
-            <a
-              href={EVENT_CONFIG.registrationUrl}
-              onClick={handleNavClick}
-              className="mt-4 px-8 py-3 text-lg font-semibold text-white bg-indigo-600 rounded-xl hover:bg-indigo-500 transition-all duration-300 shadow-lg shadow-indigo-600/25"
-              target="_blank"
-              rel="noopener noreferrer"
-              tabIndex={isMobileMenuOpen ? 0 : -1}
-            >
-              Register Now
-            </a>
           </div>
         </div>
       </header>

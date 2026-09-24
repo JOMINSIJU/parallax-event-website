@@ -11,10 +11,7 @@ export function About() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimateOnScroll>
-          <SectionHeading
-            label="// About"
-            title={EVENT_CONFIG.about.title}
-          />
+          <SectionHeading title={EVENT_CONFIG.about.title} />
         </AnimateOnScroll>
 
         <div className="max-w-3xl mx-auto">
@@ -26,17 +23,6 @@ export function About() {
             </AnimateOnScroll>
           ))}
         </div>
-
-        {/* Decorative accent */}
-        <AnimateOnScroll variant="scale" delay={300}>
-          <div className="mt-16 flex items-center justify-center gap-4">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-indigo-500/30" />
-            <span className="text-xs font-mono tracking-[0.3em] text-indigo-400/40 uppercase">
-              {EVENT_CONFIG.type}
-            </span>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-indigo-500/30" />
-          </div>
-        </AnimateOnScroll>
       </div>
     </section>
   );
