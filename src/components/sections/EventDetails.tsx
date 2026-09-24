@@ -1,6 +1,5 @@
 import { EVENT_CONFIG } from "@/data/event-config";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { GlassCard } from "@/components/ui/GlassCard";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 
 const details = [
@@ -69,31 +68,21 @@ export function EventDetails() {
           ))}
         </div>
 
-        {/* Google Maps Embed */}
+        {/* Location Link */}
         <AnimateOnScroll variant="fade-up" delay={400}>
-          <div className="max-w-4xl mx-auto">
-            <GlassCard className="p-2 overflow-hidden" hover={false}>
-              <iframe
-                src={EVENT_CONFIG.venue.mapEmbedUrl}
-                width="100%"
-                height="350"
-                style={{ border: 0, borderRadius: "12px" }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Kristu Jayanti Deemed To Be University — Event Venue"
-              />
-            </GlassCard>
-            <div className="text-center mt-4">
-              <a
-                href={EVENT_CONFIG.venue.mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-[#38bdf8]/70 hover:text-[#38bdf8] transition-colors font-mono tracking-wider"
-              >
-                Open in Google Maps →
-              </a>
-            </div>
+          <div className="flex justify-center">
+            <a
+              href={EVENT_CONFIG.venue.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 px-6 py-3 rounded-xl border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.06] hover:border-[#8b5cf6]/30 transition-all duration-400 hover:-translate-y-0.5"
+            >
+              <span className="text-lg" aria-hidden="true">📍</span>
+              <span className="text-sm text-slate-400 group-hover:text-white transition-colors">
+                View Location on Google Maps
+              </span>
+              <span className="text-slate-500 group-hover:text-[#8b5cf6] transition-colors">→</span>
+            </a>
           </div>
         </AnimateOnScroll>
       </div>
