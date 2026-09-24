@@ -27,7 +27,7 @@ export function AboutClub() {
               <h3 className="text-4xl md:text-5xl font-display font-bold text-white tracking-wide mb-2">
                 {club.name}
               </h3>
-              <p className="text-sm font-mono tracking-[0.3em] text-[#0ea5e9]/60 uppercase">
+              <p className="text-sm font-mono tracking-[0.3em] text-[#38bdf8]/60 uppercase">
                 {club.tagline}
               </p>
               <p className="text-xs text-slate-500 mt-2">

@@ -54,7 +54,7 @@ export function EventDetails() {
                 <div className="text-3xl mb-4" aria-hidden="true">
                   {detail.icon}
                 </div>
-                <p className="text-xs font-mono tracking-[0.3em] text-[#0ea5e9]/60 uppercase mb-3">
+                <p className="text-xs font-mono tracking-[0.3em] text-[#38bdf8]/60 uppercase mb-3">
                   {detail.label}
                 </p>
                 <p
@@ -89,7 +89,7 @@ export function EventDetails() {
                 href={EVENT_CONFIG.venue.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-[#0ea5e9]/70 hover:text-[#0ea5e9] transition-colors font-mono tracking-wider"
+                className="text-sm text-[#38bdf8]/70 hover:text-[#38bdf8] transition-colors font-mono tracking-wider"
               >
                 Open in Google Maps →
               </a>

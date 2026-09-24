@@ -65,7 +65,7 @@ export default function RootLayout({
       lang="en"
       className={`scroll-smooth ${ebGaramond.variable} ${sortsMillGoudy.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="bg-[#050505] text-slate-100 antialiased">
+      <body className="bg-[#030308] text-slate-100 antialiased">
         {children}
       </body>
     </html>

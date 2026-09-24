@@ -17,7 +17,7 @@ export function Hero() {
       {/* Parallax-layered hero background elements */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[#0ea5e9]/[0.06] blur-[120px]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[#38bdf8]/[0.06] blur-[120px]"
           style={{
             transform: isEnabled
               ? `translate(-50%, calc(-50% + ${getParallaxOffset(0.1)}px))`
@@ -25,7 +25,7 @@ export function Hero() {
           }}
         />
         <div
-          className="absolute top-[30%] right-[10%] w-[300px] h-[300px] rounded-full bg-[#d946ef]/[0.05] blur-[80px]"
+          className="absolute top-[30%] right-[10%] w-[300px] h-[300px] rounded-full bg-[#8b5cf6]/[0.06] blur-[80px]"
           style={{
             transform: isEnabled
               ? `translateY(${getParallaxOffset(0.15)}px)`
@@ -81,7 +81,7 @@ export function Hero() {
         </div>
 
         {/* Tagline */}
-        <p className="text-lg sm:text-xl md:text-2xl text-[#0ea5e9] font-display tracking-[0.1em] mb-4 animate-fade-in-up animation-delay-400">
+        <p className="text-lg sm:text-xl md:text-2xl bg-gradient-to-r from-[#38bdf8] via-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent font-display tracking-[0.1em] mb-4 animate-fade-in-up animation-delay-400">
           {EVENT_CONFIG.tagline}
         </p>
 

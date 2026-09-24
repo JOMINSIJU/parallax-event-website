@@ -3,7 +3,6 @@ import { cn } from "@/lib/utils";
 interface SectionHeadingProps {
   title: string;
   subtitle?: string;
-  /** Monospace label shown above the title (e.g., "// 01") */
   label?: string;
   className?: string;
   align?: "left" | "center";
@@ -25,7 +24,7 @@ export function SectionHeading({
       )}
     >
       {label && (
-        <span className="font-mono text-sm tracking-[0.3em] text-[#0ea5e9] uppercase mb-4 block">
+        <span className="font-mono text-sm tracking-[0.3em] text-[#8b5cf6] uppercase mb-4 block">
           {label}
         </span>
       )}
@@ -39,7 +38,7 @@ export function SectionHeading({
       )}
       <div
         className={cn(
-          "mt-6 h-px w-20 bg-gradient-to-r from-[#0ea5e9] to-[#d946ef]",
+          "mt-6 h-px w-20 bg-gradient-to-r from-[#38bdf8] via-[#8b5cf6] to-[#d946ef]",
           align === "center" && "mx-auto"
         )}
         aria-hidden="true"

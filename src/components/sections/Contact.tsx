@@ -28,7 +28,7 @@ export function Contact() {
               variant="fade-up"
             >
               <GlassCard className="p-8" variant="subtle">
-                <span className="inline-block text-[10px] font-mono tracking-[0.3em] text-[#0ea5e9]/60 uppercase mb-4 px-3 py-1 rounded-full border border-[#0ea5e9]/15 bg-[#0ea5e9]/5">
+                <span className="inline-block text-[10px] font-mono tracking-[0.3em] text-[#38bdf8]/60 uppercase mb-4 px-3 py-1 rounded-full border border-[#38bdf8]/15 bg-[#38bdf8]/5">
                   {contact.role}
                 </span>
 
@@ -38,7 +38,7 @@ export function Contact() {
 
                 <div className="space-y-2">
                   <p className="text-sm text-slate-400 flex items-center gap-2">
-                    <span className="text-[#0ea5e9]/60" aria-hidden="true">☎</span>
+                    <span className="text-[#38bdf8]/60" aria-hidden="true">☎</span>
                     <a
                       href={`tel:${contact.phone.replace(/\s/g, "")}`}
                       className="hover:text-white transition-colors"
@@ -47,7 +47,7 @@ export function Contact() {
                     </a>
                   </p>
                   <p className="text-sm text-slate-400 flex items-center gap-2">
-                    <span className="text-[#0ea5e9]/60" aria-hidden="true">✉</span>
+                    <span className="text-[#38bdf8]/60" aria-hidden="true">✉</span>
                     <a
                       href={`mailto:${contact.email}`}
                       className="hover:text-white transition-colors"

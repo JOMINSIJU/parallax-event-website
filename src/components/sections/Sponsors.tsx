@@ -30,9 +30,9 @@ export function Sponsors() {
                 We are partnering with leading organizations to bring you the best
                 experience. Sponsor details will be announced shortly.
               </p>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0ea5e9]/10 border border-[#0ea5e9]/20">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0ea5e9] animate-pulse" />
-                <span className="text-[10px] font-mono tracking-wider text-[#0ea5e9] uppercase">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#38bdf8]/10 border border-[#38bdf8]/20">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#38bdf8] animate-pulse" />
+                <span className="text-[10px] font-mono tracking-wider text-[#38bdf8] uppercase">
                   To Be Updated
                 </span>
               </div>

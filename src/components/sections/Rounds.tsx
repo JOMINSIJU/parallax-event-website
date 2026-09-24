@@ -5,12 +5,12 @@ import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 /** Gradient accent colors for each round card */
 const roundAccents = [
   {
-    gradient: "from-[#0ea5e9] to-[#6366f1]",
-    glow: "shadow-[#0ea5e9]/10",
-    border: "border-[#0ea5e9]/20 hover:border-[#0ea5e9]/50",
-    number: "text-[#0ea5e9]",
-    tagBg: "bg-[#0ea5e9]/10 text-[#0ea5e9] border-[#0ea5e9]/20",
-    headerBg: "bg-gradient-to-br from-[#0ea5e9]/10 to-transparent",
+    gradient: "from-[#38bdf8] to-[#6366f1]",
+    glow: "shadow-[#38bdf8]/10",
+    border: "border-[#38bdf8]/20 hover:border-[#38bdf8]/50",
+    number: "text-[#38bdf8]",
+    tagBg: "bg-[#38bdf8]/10 text-[#38bdf8] border-[#38bdf8]/20",
+    headerBg: "bg-gradient-to-br from-[#38bdf8]/10 to-transparent",
   },
   {
     gradient: "from-[#d946ef] to-[#a855f7]",
@@ -21,7 +21,7 @@ const roundAccents = [
     headerBg: "bg-gradient-to-br from-[#d946ef]/10 to-transparent",
   },
   {
-    gradient: "from-[#a855f7] to-[#0ea5e9]",
+    gradient: "from-[#a855f7] to-[#38bdf8]",
     glow: "shadow-[#a855f7]/10",
     border: "border-[#a855f7]/20 hover:border-[#a855f7]/50",
     number: "text-[#a855f7]",
@@ -118,7 +118,7 @@ export function Rounds() {
               href={EVENT_CONFIG.brochureUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 px-8 py-4 text-sm font-mono tracking-[0.15em] text-white uppercase rounded-xl border border-[#0ea5e9]/30 bg-white/[0.03] hover:bg-[#0ea5e9]/10 hover:border-[#0ea5e9]/50 transition-all duration-500 hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-3 px-8 py-4 text-sm font-mono tracking-[0.15em] text-white uppercase rounded-xl border border-[#38bdf8]/30 bg-white/[0.03] hover:bg-[#38bdf8]/10 hover:border-[#38bdf8]/50 transition-all duration-500 hover:-translate-y-0.5"
             >
               <span>View Full Round Details</span>
               <span className="transition-transform duration-300 group-hover:translate-x-1">

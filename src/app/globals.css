@@ -2,6 +2,10 @@
 
 /* ============================================================================
    PARALLAX — Global Styles & Design System
+   Color palette derived from the PARALLAX logo:
+     Crystal Blue: #38bdf8   Royal Blue: #3b82f6   Deep Blue: #2563eb
+     Violet: #8b5cf6         Purple: #7c3aed       Magenta: #d946ef
+     Pink: #ec4899           White highlights
    ============================================================================ */
 
 /* ── Tailwind v4 Theme ─────────────────────────────────────────────────────── */
@@ -10,8 +14,8 @@
   --font-body: "Goudy Old Style", "Sorts Mill Goudy", "Lora", Georgia, serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  --color-bg-primary: #050505;
-  --color-bg-secondary: #0a0f1d;
+  --color-bg-primary: #030308;
+  --color-bg-secondary: #0a0a1a;
 
   /* Custom animation keyframes */
   --animate-scroll-indicator: scroll-indicator 2s ease-in-out infinite;
@@ -24,14 +28,8 @@
 
 /* ── Keyframes ─────────────────────────────────────────────────────────────── */
 @keyframes scroll-indicator {
-  0%, 100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(12px);
-    opacity: 0.3;
-  }
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(12px); opacity: 0.3; }
 }
 
 @keyframes float-slow {
@@ -67,7 +65,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: #f1f5f9;
+  color: #e2e8f0;
   background-color: var(--color-bg-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -83,27 +81,31 @@ h1, h2, h3, h4, h5, h6 {
 .animation-delay-400 { animation-delay: 400ms; }
 .animation-delay-600 { animation-delay: 600ms; }
 
-/* Initial state for fade-in animations */
 .animate-fade-in-up,
 .animate-fade-in-down {
   opacity: 0;
 }
 
-/* ── Selection ─────────────────────────────────────────────────────────────── */
+/* ── Selection — crystal blue ──────────────────────────────────────────────── */
 ::selection {
-  background-color: rgba(14, 165, 233, 0.3);
+  background-color: rgba(56, 189, 248, 0.3);
   color: #fff;
 }
 
-/* ── Scrollbar ─────────────────────────────────────────────────────────────── */
+/* ── Scrollbar — violet gradient ───────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--color-bg-primary); }
-::-webkit-scrollbar-thumb { background: rgba(14, 165, 233, 0.3); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(14, 165, 233, 0.5); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.4), rgba(56, 189, 248, 0.4));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.6), rgba(56, 189, 248, 0.6));
+}
 
 /* ── Focus Styles ──────────────────────────────────────────────────────────── */
 *:focus-visible {
-  outline: 2px solid rgba(14, 165, 233, 0.6);
+  outline: 2px solid rgba(139, 92, 246, 0.6);
   outline-offset: 2px;
   border-radius: 4px;
 }

@@ -9,9 +9,7 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -35,7 +33,7 @@ export function Navbar() {
     <>
       <a
         href="#about"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#0ea5e9] focus:text-white focus:rounded-lg focus:outline-none"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#8b5cf6] focus:text-white focus:rounded-lg focus:outline-none"
       >
         Skip to main content
       </a>
@@ -44,32 +42,22 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled
-            ? "bg-[#050505]/80 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/20"
+            ? "bg-[#030308]/80 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/20"
             : "bg-transparent"
         )}
         role="banner"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav
-            className="flex items-center justify-between h-16 md:h-20"
-            role="navigation"
-            aria-label="Main navigation"
-          >
-            {/* Logo / Brand */}
-            <a
-              href="#hero"
-              className="flex items-center gap-3 group"
-              aria-label={`${EVENT_CONFIG.name} — Back to top`}
-            >
-              <span className="text-xl font-display font-bold tracking-[0.15em] text-white group-hover:text-[#0ea5e9] transition-colors duration-300">
+          <nav className="flex items-center justify-between h-16 md:h-20" role="navigation" aria-label="Main navigation">
+            <a href="#hero" className="flex items-center gap-3 group" aria-label={`${EVENT_CONFIG.name} — Back to top`}>
+              <span className="text-xl font-display font-bold tracking-[0.15em] text-white group-hover:text-[#38bdf8] transition-colors duration-300">
                 {EVENT_CONFIG.name}
               </span>
-              <span className="hidden sm:inline-block text-[10px] font-mono tracking-[0.2em] text-[#0ea5e9]/60 uppercase border border-[#0ea5e9]/20 rounded px-2 py-0.5">
+              <span className="hidden sm:inline-block text-[10px] font-mono tracking-[0.2em] text-[#8b5cf6]/60 uppercase border border-[#8b5cf6]/20 rounded px-2 py-0.5">
                 {EVENT_CONFIG.type}
               </span>
             </a>
 
-            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-1">
               {EVENT_CONFIG.navLinks.map((link) => (
                 <a
@@ -82,7 +70,6 @@ export function Navbar() {
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/[0.05] transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -99,11 +86,10 @@ export function Navbar() {
           </nav>
         </div>
 
-        {/* Mobile Menu */}
         <div
           id="mobile-menu"
           className={cn(
-            "md:hidden fixed inset-x-0 top-16 bottom-0 bg-[#050505]/95 backdrop-blur-xl transition-all duration-500 ease-out",
+            "md:hidden fixed inset-x-0 top-16 bottom-0 bg-[#030308]/95 backdrop-blur-xl transition-all duration-500 ease-out",
             isMobileMenuOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-4 pointer-events-none"
           )}
           aria-hidden={!isMobileMenuOpen}

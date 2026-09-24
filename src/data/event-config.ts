@@ -139,7 +139,7 @@ export const EVENT_CONFIG = {
   // ── Assets / Logos ─────────────────────────────────────────────────────
   logos: {
     university: "/assets/logos/kju-banner.png",
-    parallax: "/assets/logos/parallax-logo.jpg",
+    parallax: "/assets/logos/parallax-logo.png",
   },
 
   // ── Navigation ─────────────────────────────────────────────────────────

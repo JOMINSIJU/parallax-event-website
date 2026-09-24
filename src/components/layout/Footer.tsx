@@ -12,7 +12,7 @@ export function Footer() {
             <h3 className="text-2xl font-display font-bold tracking-[0.15em] text-white mb-2">
               {EVENT_CONFIG.name}
             </h3>
-            <p className="text-sm font-mono tracking-[0.2em] text-[#0ea5e9]/60 uppercase mb-4">
+            <p className="text-sm font-mono tracking-[0.2em] text-[#38bdf8]/60 uppercase mb-4">
               {EVENT_CONFIG.type}
             </p>
             <p className="text-sm text-slate-500 leading-relaxed">
@@ -46,19 +46,19 @@ export function Footer() {
             </h4>
             <ul className="space-y-3 text-sm text-slate-400">
               <li className="flex items-start gap-2">
-                <span className="text-[#0ea5e9] mt-0.5">◆</span>
+                <span className="text-[#38bdf8] mt-0.5">◆</span>
                 <span>{EVENT_CONFIG.date}</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#0ea5e9] mt-0.5">◆</span>
+                <span className="text-[#38bdf8] mt-0.5">◆</span>
                 <span>{EVENT_CONFIG.venue.hall}, {EVENT_CONFIG.venue.floor}, {EVENT_CONFIG.venue.block}</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#0ea5e9] mt-0.5">◆</span>
+                <span className="text-[#38bdf8] mt-0.5">◆</span>
                 <span>{EVENT_CONFIG.venue.campus}, {EVENT_CONFIG.venue.area}</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#0ea5e9] mt-0.5">◆</span>
+                <span className="text-[#38bdf8] mt-0.5">◆</span>
                 <span>{EVENT_CONFIG.venue.institution}</span>
               </li>
             </ul>

@@ -7,7 +7,7 @@ export function ScrollIndicator() {
         Scroll
       </span>
       <div className="w-6 h-10 rounded-full border-2 border-slate-500/30 flex items-start justify-center p-1.5">
-        <div className="w-1 h-2.5 rounded-full bg-[#0ea5e9] animate-scroll-indicator" />
+        <div className="w-1 h-2.5 rounded-full bg-[#8b5cf6] animate-scroll-indicator" />
       </div>
     </div>
   );

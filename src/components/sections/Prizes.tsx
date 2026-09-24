@@ -47,15 +47,15 @@ export function Prizes() {
                   className={`text-sm font-mono tracking-wider ${
                     prizes.status === "coming-soon"
                       ? "text-slate-500"
-                      : "text-[#0ea5e9] text-xl font-bold"
+                      : "text-[#38bdf8] text-xl font-bold"
                   }`}
                 >
                   {prize.prize}
                 </p>
                 {prizes.status === "coming-soon" && (
-                  <div className="mt-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0ea5e9]/10 border border-[#0ea5e9]/20">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0ea5e9] animate-pulse" />
-                    <span className="text-[10px] font-mono tracking-wider text-[#0ea5e9] uppercase">
+                  <div className="mt-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#38bdf8]/10 border border-[#38bdf8]/20">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#38bdf8] animate-pulse" />
+                    <span className="text-[10px] font-mono tracking-wider text-[#38bdf8] uppercase">
                       Coming Soon
                     </span>
                   </div>
