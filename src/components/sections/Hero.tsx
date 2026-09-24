@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { EVENT_CONFIG } from "@/data/event-config";
-import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
+
 import { useParallax } from "@/hooks/useParallax";
 
 export function Hero() {
@@ -35,7 +35,7 @@ export function Hero() {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto pt-16 md:pt-24">
         {/* KJU Banner Logo */}
         <div className="mb-8 animate-fade-in-down">
           <Image
@@ -91,8 +91,6 @@ export function Hero() {
         </p>
       </div>
 
-      {/* Scroll Indicator */}
-      <ScrollIndicator />
     </section>
   );
 }
