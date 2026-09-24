@@ -1,11 +1,31 @@
 import type { Metadata } from "next";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import { EVENT_CONFIG } from "@/data/event-config";
 import "./globals.css";
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://parallax-event.vercel.app"),
   title: EVENT_CONFIG.meta.title,
   description: EVENT_CONFIG.meta.description,
-  keywords: EVENT_CONFIG.meta.keywords,
+  keywords: [...EVENT_CONFIG.meta.keywords],
   authors: [{ name: EVENT_CONFIG.institution.name }],
   openGraph: {
     title: EVENT_CONFIG.meta.title,
@@ -40,8 +60,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="bg-[#0a0a12] text-slate-100 antialiased">
+    <html
+      lang="en"
+      className={`scroll-smooth ${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+    >
+      <body className="bg-[#0a0a12] text-slate-100 antialiased font-sans">
         {children}
       </body>
     </html>
