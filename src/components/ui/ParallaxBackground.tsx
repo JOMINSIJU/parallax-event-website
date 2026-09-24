@@ -304,36 +304,117 @@ export function ParallaxBackground() {
         }
       }
 
-      // ── Pulsing rings ──
-      const numRings = 3;
-      for (let r = 0; r < numRings; r++) {
-        const ringPhase = time * 0.3 + (r * Math.PI * 2) / numRings;
-        const ringRadius = 50 + (ringPhase % (Math.PI * 2)) * 80;
-        const ringOpacity = Math.max(0, 0.04 * (1 - ringRadius / 600));
-        const cx = canvas.width * (0.2 + r * 0.3);
-        const cy = canvas.height * (0.3 + r * 0.2);
-
-        ctx.beginPath();
-        ctx.arc(cx, cy, ringRadius, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(${r === 0 ? colors.crystalBlue : r === 1 ? colors.violet : colors.magenta}, ${ringOpacity})`;
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
+      // ── Scanning beam lines ──
+      for (let s = 0; s < 2; s++) {
+        const scanY = ((time * (40 + s * 15) + s * canvas.height * 0.5) % (canvas.height + 100)) - 50;
+        const scanGrad = ctx.createLinearGradient(0, scanY, canvas.width, scanY);
+        scanGrad.addColorStop(0, "rgba(0,0,0,0)");
+        scanGrad.addColorStop(0.3, `rgba(${s === 0 ? colors.crystalBlue : colors.magenta}, 0.03)`);
+        scanGrad.addColorStop(0.5, `rgba(${s === 0 ? colors.crystalBlue : colors.magenta}, 0.06)`);
+        scanGrad.addColorStop(0.7, `rgba(${s === 0 ? colors.crystalBlue : colors.magenta}, 0.03)`);
+        scanGrad.addColorStop(1, "rgba(0,0,0,0)");
+        ctx.fillStyle = scanGrad;
+        ctx.fillRect(0, scanY - 1, canvas.width, 2);
       }
 
-      // ── Mouse ripple ring ──
-      if (mouse.active) {
-        const rippleRadius = 30 + Math.sin(time * 3) * 10;
+      // ── Orbiting satellite dots ──
+      const hubs = [
+        { x: canvas.width * 0.15, y: canvas.height * 0.25, r: 60, color: colors.crystalBlue },
+        { x: canvas.width * 0.85, y: canvas.height * 0.4, r: 50, color: colors.violet },
+        { x: canvas.width * 0.5, y: canvas.height * 0.75, r: 70, color: colors.magenta },
+        { x: canvas.width * 0.75, y: canvas.height * 0.15, r: 45, color: colors.pink },
+      ];
+      hubs.forEach((hub, hi) => {
+        // Hub center dot
         ctx.beginPath();
-        ctx.arc(mouse.x, mouse.y, rippleRadius, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(${colors.violet}, 0.08)`;
-        ctx.lineWidth = 1;
-        ctx.stroke();
+        ctx.arc(hub.x, hub.y, 2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${hub.color}, 0.15)`;
+        ctx.fill();
 
+        // Orbit ring
         ctx.beginPath();
-        ctx.arc(mouse.x, mouse.y, rippleRadius * 1.8, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(${colors.crystalBlue}, 0.04)`;
+        ctx.arc(hub.x, hub.y, hub.r, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(${hub.color}, 0.04)`;
         ctx.lineWidth = 0.5;
         ctx.stroke();
+
+        // Orbiting dots
+        for (let d = 0; d < 3; d++) {
+          const angle = time * (0.5 + hi * 0.15) + (d * Math.PI * 2) / 3;
+          const ox = hub.x + Math.cos(angle) * hub.r;
+          const oy = hub.y + Math.sin(angle) * hub.r;
+          ctx.beginPath();
+          ctx.arc(ox, oy, 1.5, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${hub.color}, 0.4)`;
+          ctx.fill();
+          // Trail
+          const trailAngle = angle - 0.3;
+          const tx = hub.x + Math.cos(trailAngle) * hub.r;
+          const ty = hub.y + Math.sin(trailAngle) * hub.r;
+          ctx.beginPath();
+          ctx.moveTo(ox, oy);
+          ctx.lineTo(tx, ty);
+          ctx.strokeStyle = `rgba(${hub.color}, 0.12)`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      });
+
+      // ── Circuit board traces ──
+      const traceSeeds = [
+        { sx: canvas.width * 0.1, sy: canvas.height * 0.6, color: colors.violet },
+        { sx: canvas.width * 0.9, sy: canvas.height * 0.3, color: colors.crystalBlue },
+        { sx: canvas.width * 0.4, sy: canvas.height * 0.9, color: colors.magenta },
+      ];
+      traceSeeds.forEach((seed) => {
+        ctx.beginPath();
+        ctx.moveTo(seed.sx, seed.sy);
+        let tx = seed.sx;
+        let ty = seed.sy;
+        for (let seg = 0; seg < 6; seg++) {
+          const segLen = 30 + Math.sin(time * 0.5 + seg) * 15;
+          if (seg % 2 === 0) {
+            tx += segLen;
+          } else {
+            ty -= segLen;
+          }
+          ctx.lineTo(tx, ty);
+          // Node dot at corner
+          ctx.fillStyle = `rgba(${seed.color}, 0.12)`;
+          ctx.fillRect(tx - 1.5, ty - 1.5, 3, 3);
+        }
+        ctx.strokeStyle = `rgba(${seed.color}, 0.05)`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      });
+
+      // ── Hex grid pulse wave ──
+      const hexSize = 40;
+      const pulseCenter = { x: canvas.width * 0.5, y: canvas.height * 0.5 };
+      const pulseWave = (time * 80) % (canvas.width * 0.8);
+      for (let hx = 0; hx < canvas.width + hexSize; hx += hexSize * 1.75) {
+        for (let hy = 0; hy < canvas.height + hexSize; hy += hexSize * 1.5) {
+          const offsetX = (Math.floor(hy / (hexSize * 1.5)) % 2) * hexSize * 0.875;
+          const cx = hx + offsetX;
+          const cy = hy;
+          const dist = Math.sqrt((cx - pulseCenter.x) ** 2 + (cy - pulseCenter.y) ** 2);
+          const waveDist = Math.abs(dist - pulseWave);
+          if (waveDist < 60) {
+            const intensity = 0.03 * (1 - waveDist / 60);
+            ctx.beginPath();
+            for (let v = 0; v < 6; v++) {
+              const angle = (Math.PI / 3) * v - Math.PI / 6;
+              const px = cx + Math.cos(angle) * hexSize * 0.4;
+              const py = cy + Math.sin(angle) * hexSize * 0.4;
+              if (v === 0) ctx.moveTo(px, py);
+              else ctx.lineTo(px, py);
+            }
+            ctx.closePath();
+            ctx.strokeStyle = `rgba(${colors.violet}, ${intensity})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
       }
 
       animationFrameId = requestAnimationFrame(draw);

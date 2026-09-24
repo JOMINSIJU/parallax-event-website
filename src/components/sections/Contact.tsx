@@ -41,7 +41,7 @@ export function Contact() {
                     <span className="text-[#38bdf8]/60" aria-hidden="true">☎</span>
                     <a
                       href={`tel:${contact.phone.replace(/\s/g, "")}`}
-                      className="hover:text-white transition-colors"
+                      className="hover:text-white transition-colors" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                     >
                       {contact.phone}
                     </a>
@@ -50,7 +50,7 @@ export function Contact() {
                     <span className="text-[#38bdf8]/60" aria-hidden="true">✉</span>
                     <a
                       href={`mailto:${contact.email}`}
-                      className="hover:text-white transition-colors"
+                      className="hover:text-white transition-colors" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                     >
                       {contact.email}
                     </a>

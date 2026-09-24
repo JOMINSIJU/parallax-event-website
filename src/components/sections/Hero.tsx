@@ -37,26 +37,26 @@ export function Hero() {
       {/* Hero Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
         {/* KJU Banner Logo */}
-        <div className="mb-6 animate-fade-in-down">
+        <div className="mb-8 animate-fade-in-down">
           <Image
             src={EVENT_CONFIG.logos.university}
             alt={EVENT_CONFIG.institution.name}
-            width={500}
-            height={80}
-            className="mx-auto h-12 sm:h-16 md:h-20 w-auto object-contain"
+            width={700}
+            height={120}
+            className="mx-auto h-20 sm:h-24 md:h-28 w-auto object-contain"
             priority
           />
         </div>
 
         {/* School & Department */}
-        <div className="mb-4 animate-fade-in-down animation-delay-200">
-          <p className="text-[11px] sm:text-xs font-mono tracking-[0.2em] text-slate-400 uppercase leading-relaxed">
+        <div className="mb-6 animate-fade-in-down animation-delay-200">
+          <p className="text-sm sm:text-base md:text-lg tracking-[0.15em] text-slate-200 uppercase leading-relaxed font-medium">
             {EVENT_CONFIG.institution.school}
           </p>
-          <p className="text-[11px] sm:text-xs font-mono tracking-[0.2em] text-slate-500 uppercase">
+          <p className="text-xs sm:text-sm md:text-base tracking-[0.15em] text-slate-300 uppercase mt-1">
             {EVENT_CONFIG.institution.department}
           </p>
-          <p className="text-xs sm:text-sm tracking-[0.15em] text-slate-300 mt-2 uppercase">
+          <p className="text-sm sm:text-base tracking-[0.15em] text-[#38bdf8]/80 mt-3 uppercase font-semibold">
             Organizes
           </p>
         </div>
