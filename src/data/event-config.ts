@@ -12,7 +12,7 @@ export const EVENT_CONFIG = {
   tagline: "Decode, Recreate, Create.",
   date: "16th October",
   year: "2026",
-  fullEventLine: "Inter Collegiate Promptathon Fest on 16th October 2026",
+  fullEventLine: "National Level Inter University Event on 16th October 2026",
 
   // ── Institution ────────────────────────────────────────────────────────
   institution: {

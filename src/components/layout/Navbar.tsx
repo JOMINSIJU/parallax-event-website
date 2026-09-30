@@ -68,6 +68,14 @@ export function Navbar() {
                   {link.label}
                 </a>
               ))}
+              <a
+                href={EVENT_CONFIG.registrationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-2 px-4 py-2 text-sm font-semibold tracking-wider text-white uppercase rounded-lg bg-gradient-to-r from-[#38bdf8] via-[#8b5cf6] to-[#d946ef] hover:opacity-90 transition-opacity duration-300"
+              >
+                Register
+              </a>
             </div>
 
             <button

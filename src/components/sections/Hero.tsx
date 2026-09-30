@@ -75,7 +75,7 @@ export function Hero() {
         {/* Year */}
         <div className="mb-3 md:mb-4 animate-fade-in-up animation-delay-200">
           <span className="text-2xl sm:text-4xl md:text-5xl font-display font-bold tracking-[0.15em] text-white/90">
-            {EVENT_CONFIG.year}
+            {EVENT_CONFIG.type} {EVENT_CONFIG.year}
           </span>
         </div>
 
