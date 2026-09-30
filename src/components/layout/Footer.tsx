@@ -16,7 +16,7 @@ export function Footer() {
               {EVENT_CONFIG.type}
             </p>
             <p className="text-sm text-slate-500 leading-relaxed">
-              {EVENT_CONFIG.date} • {EVENT_CONFIG.institution.name}
+              {EVENT_CONFIG.date} {EVENT_CONFIG.year} • {EVENT_CONFIG.institution.name}
             </p>
           </div>
 
@@ -72,7 +72,7 @@ export function Footer() {
               &copy; {currentYear} {EVENT_CONFIG.name} • {EVENT_CONFIG.institution.name}
             </p>
             <p className="text-xs text-slate-600 font-mono tracking-wider">
-              {EVENT_CONFIG.type} • {EVENT_CONFIG.date}
+              {EVENT_CONFIG.type} • {EVENT_CONFIG.date} {EVENT_CONFIG.year}
             </p>
           </div>
         </div>

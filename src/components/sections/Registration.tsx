@@ -58,7 +58,7 @@ export function Registration() {
               </a>
 
               <p className="mt-6 text-xs font-mono tracking-wider text-slate-600">
-                {EVENT_CONFIG.date} • {EVENT_CONFIG.venue.hall}
+                {EVENT_CONFIG.date} {EVENT_CONFIG.year} • {EVENT_CONFIG.venue.hall}
               </p>
             </div>
           </div>

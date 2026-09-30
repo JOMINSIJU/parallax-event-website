@@ -7,25 +7,19 @@ const details = [
   {
     icon: "📅",
     label: "Date",
-    value: EVENT_CONFIG.date,
+    value: `${EVENT_CONFIG.date} ${EVENT_CONFIG.year}`,
     mono: true,
   },
   {
     icon: "📍",
     label: "Venue",
-    value: `${EVENT_CONFIG.venue.hall}, ${EVENT_CONFIG.venue.floor}, ${EVENT_CONFIG.venue.block}`,
+    value: `${EVENT_CONFIG.venue.hall}, ${EVENT_CONFIG.venue.floor}, ${EVENT_CONFIG.venue.block}, ${EVENT_CONFIG.venue.campus}`,
     mono: false,
   },
   {
     icon: "🏫",
     label: "Location",
-    value: `${EVENT_CONFIG.venue.campus}, ${EVENT_CONFIG.venue.area}`,
-    mono: false,
-  },
-  {
-    icon: "🎓",
-    label: "Institution",
-    value: EVENT_CONFIG.venue.institution,
+    value: `${EVENT_CONFIG.venue.institution}, ${EVENT_CONFIG.venue.area}`,
     mono: false,
   },
 ];
@@ -47,7 +41,7 @@ export function EventDetails() {
           />
         </AnimateOnScroll>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
           {details.map((detail, index) => (
             <AnimateOnScroll key={detail.label} delay={index * 100} variant="fade-up">
               <GlassCard className="p-6 text-center h-full" variant="accent">
