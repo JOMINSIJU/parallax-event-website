@@ -5,8 +5,8 @@ export function Footer() {
 
   return (
     <footer className="relative border-t border-white/[0.06] bg-[#030308]" role="contentinfo">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand Column */}
           <div className="md:col-span-1">
             <h3 className="text-2xl font-display font-bold tracking-[0.15em] text-white mb-2">

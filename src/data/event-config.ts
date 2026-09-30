@@ -34,13 +34,13 @@ export const EVENT_CONFIG = {
 
   // ── Venue ──────────────────────────────────────────────────────────────
   venue: {
-    hall: "M1 AUDI",
-    floor: "1st Floor",
-    block: "Main Block",
+    hall: "M1 Auditorium",
+    floor: "First Floor",
+    block: "Science Block 1",
     campus: "Central Campus",
-    area: "K. Narayanapura, Kothanur",
+    area: "K Narayanapura, Bangalore",
     institution: "Kristu Jayanti Deemed To Be University",
-    full: "M1 AUDI, 1st Floor, Main Block, Central Campus, K. Narayanapura, Kothanur",
+    full: "M1 Auditorium, First Floor, Science Block 1, Central Campus, K Narayanapura, Bangalore",
     mapEmbedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.1726553029207!2d77.64949!3d13.06847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae19555555555%3A0x70db5363b0d3cc9c!2sKristu%20Jayanti%20College!5e0!3m2!1sen!2sin!4v1695000000000!5m2!1sen!2sin",
     mapUrl: "https://maps.google.com/?q=Kristu+Jayanti+College+Bangalore",

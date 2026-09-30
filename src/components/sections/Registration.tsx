@@ -5,7 +5,7 @@ export function Registration() {
   return (
     <section
       id="register"
-      className="relative py-24 md:py-32"
+      className="relative py-16 md:py-32"
       aria-labelledby="register-heading"
     >
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
@@ -18,7 +18,7 @@ export function Registration() {
               aria-hidden="true"
             />
 
-            <div className="relative rounded-3xl border border-[#38bdf8]/20 bg-white/[0.02] backdrop-blur-md p-10 md:p-16 overflow-hidden">
+            <div className="relative rounded-2xl md:rounded-3xl border border-[#38bdf8]/20 bg-white/[0.02] backdrop-blur-md p-6 sm:p-10 md:p-16 overflow-hidden">
               {/* Decorative corner elements */}
               <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-[#38bdf8]/30 rounded-tl-3xl" aria-hidden="true" />
               <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-[#38bdf8]/30 rounded-tr-3xl" aria-hidden="true" />
@@ -33,19 +33,19 @@ export function Registration() {
 
               <h2
                 id="register-heading"
-                className="text-3xl md:text-5xl font-display font-bold text-white mb-6 tracking-tight"
+                className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-white mb-4 md:mb-6 tracking-tight"
               >
                 Ready to Compete?
               </h2>
 
-              <p className="text-lg text-slate-400 mb-10 max-w-xl mx-auto leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-slate-400 mb-6 md:mb-10 max-w-xl mx-auto leading-relaxed">
                 Secure your spot at {EVENT_CONFIG.name} — the ultimate {EVENT_CONFIG.type} challenge
                 at {EVENT_CONFIG.institution.name}.
               </p>
 
               <a
                 href={EVENT_CONFIG.registrationUrl}
-                className="group relative inline-flex items-center gap-3 px-10 py-5 text-base font-semibold tracking-[0.15em] text-white uppercase overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-1"
+                className="group relative inline-flex items-center gap-3 px-6 py-4 sm:px-10 sm:py-5 text-sm sm:text-base font-semibold tracking-[0.15em] text-white uppercase overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-1"
                 target="_blank"
                 rel="noopener noreferrer"
                 id="register-cta"

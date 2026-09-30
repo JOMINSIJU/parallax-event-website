@@ -34,7 +34,7 @@ export function EventDetails() {
   return (
     <section
       id="details"
-      className="relative py-24 md:py-32"
+      className="relative py-16 md:py-32"
       aria-labelledby="details-heading"
     >
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />

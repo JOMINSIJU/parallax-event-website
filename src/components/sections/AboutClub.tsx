@@ -9,7 +9,7 @@ export function AboutClub() {
   return (
     <section
       id="club"
-      className="relative py-24 md:py-32"
+      className="relative py-16 md:py-32"
       aria-labelledby="club-heading"
     >
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />

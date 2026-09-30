@@ -34,7 +34,7 @@ export function Rounds() {
   return (
     <section
       id="rounds"
-      className="relative py-24 md:py-32"
+      className="relative py-16 md:py-32"
       aria-labelledby="rounds-heading"
     >
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
@@ -47,7 +47,7 @@ export function Rounds() {
           />
         </AnimateOnScroll>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8 max-w-6xl mx-auto">
           {EVENT_CONFIG.rounds.map((round, index) => {
             const accent = roundAccents[index];
             return (

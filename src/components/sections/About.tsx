@@ -6,7 +6,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="relative py-24 md:py-32"
+      className="relative py-16 md:py-32"
       aria-labelledby="about-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,7 +17,7 @@ export function About() {
         <div className="max-w-3xl mx-auto">
           {EVENT_CONFIG.about.paragraphs.map((paragraph, index) => (
             <AnimateOnScroll key={index} delay={index * 150}>
-              <p className="text-lg text-slate-400 leading-relaxed mb-6 last:mb-0">
+              <p className="text-sm sm:text-base md:text-lg text-slate-400 leading-relaxed mb-6 last:mb-0">
                 {paragraph}
               </p>
             </AnimateOnScroll>

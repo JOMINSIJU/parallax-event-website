@@ -91,8 +91,9 @@ export function ParallaxBackground() {
     };
 
     const initElements = () => {
+      const isMobile = canvas.width < 768;
       particles = [];
-      const numParticles = Math.floor((canvas.width * canvas.height) / 18000);
+      const numParticles = Math.floor((canvas.width * canvas.height) / (isMobile ? 35000 : 18000));
       for (let i = 0; i < numParticles; i++) {
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
@@ -110,7 +111,7 @@ export function ParallaxBackground() {
       }
 
       dataStreams = [];
-      const numStreams = Math.floor(canvas.width / 120);
+      const numStreams = Math.floor(canvas.width / (isMobile ? 200 : 120));
       const aiChars = ["0", "1", "A", "I", "▪", "◆", "⬡", "⊡", "◇", "∞", "λ", "Σ", "π", "∂"];
       for (let i = 0; i < numStreams; i++) {
         const streamChars: string[] = [];
@@ -131,7 +132,7 @@ export function ParallaxBackground() {
 
       floatingSymbols = [];
       const symbols = ["⬡", "◇", "△", "○", "□", "⊕", "⊗", "∿", "⚡"];
-      const numSymbols = Math.floor(canvas.width / 200);
+      const numSymbols = Math.floor(canvas.width / (isMobile ? 300 : 200));
       for (let i = 0; i < numSymbols; i++) {
         const op = 0.04 + Math.random() * 0.06;
         const sz = 16 + Math.random() * 24;
