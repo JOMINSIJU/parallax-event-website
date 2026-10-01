@@ -33,7 +33,7 @@ export const EVENT_CONFIG = {
       ],
     },
     {
-      name: "DataSphere",
+      name: "DATASPHERE",
       tagline: "Data Science Club",
       description: [
         "DataSphere is a student-led club for data science students, built to give them a space to learn beyond the classroom. It exists to bridge the gap between theory and practice, giving students hands-on exposure to how data works in the real world.",
