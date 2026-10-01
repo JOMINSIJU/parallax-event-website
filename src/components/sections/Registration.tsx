@@ -27,7 +27,7 @@ export function Registration() {
 
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#38bdf8]/40 to-transparent" />
 
-              <span className="inline-block text-xs font-mono tracking-[0.4em] text-[#38bdf8]/60 uppercase mb-6">
+              <span className="inline-block text-xs tracking-[0.4em] text-[#38bdf8]/60 uppercase mb-6">
                 Registration Portal
               </span>
 
@@ -57,7 +57,7 @@ export function Registration() {
                 <span className="relative text-lg transition-transform duration-300 group-hover:translate-x-1">→</span>
               </a>
 
-              <p className="mt-6 text-xs font-mono tracking-wider text-slate-600">
+              <p className="mt-6 text-xs tracking-wider text-slate-600">
                 {EVENT_CONFIG.date} {EVENT_CONFIG.year} • {EVENT_CONFIG.venue.hall}
               </p>
             </div>

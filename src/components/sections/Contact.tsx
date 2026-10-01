@@ -28,7 +28,7 @@ export function Contact() {
               variant="fade-up"
             >
               <GlassCard className="p-8" variant="subtle">
-                <span className="inline-block text-[10px] font-mono tracking-[0.3em] text-[#38bdf8]/60 uppercase mb-4 px-3 py-1 rounded-full border border-[#38bdf8]/15 bg-[#38bdf8]/5">
+                <span className="inline-block text-[10px] tracking-[0.3em] text-[#38bdf8]/60 uppercase mb-4 px-3 py-1 rounded-full border border-[#38bdf8]/15 bg-[#38bdf8]/5">
                   {contact.role}
                 </span>
 

@@ -76,7 +76,7 @@ export function Hero() {
         <div className="mb-4 md:mb-6 animate-fade-in-up animation-delay-400">
           <Image
             src={EVENT_CONFIG.logos.parallax}
-            alt="PARALLAX — The Promptathon Challenge"
+            alt="Parallax'26 — The Promptathon Challenge"
             width={800}
             height={250}
             className="mx-auto w-full max-w-xs sm:max-w-lg md:max-w-2xl h-auto object-contain"
@@ -90,7 +90,7 @@ export function Hero() {
         </p>
 
         {/* Date */}
-        <p className="text-sm sm:text-base md:text-lg text-slate-400 tracking-wide animate-fade-in-up animation-delay-600 font-mono">
+        <p className="text-sm sm:text-base md:text-lg text-slate-400 tracking-wide animate-fade-in-up animation-delay-600">
           {EVENT_CONFIG.date} {EVENT_CONFIG.year}
         </p>
       </div>

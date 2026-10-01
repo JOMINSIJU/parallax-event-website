@@ -12,7 +12,7 @@ export function Footer() {
             <h3 className="text-2xl font-display font-bold tracking-[0.15em] text-white mb-2">
               {EVENT_CONFIG.name}
             </h3>
-            <p className="text-sm font-mono tracking-[0.2em] text-[#38bdf8]/60 uppercase mb-4">
+            <p className="text-sm tracking-[0.2em] text-[#38bdf8]/60 uppercase mb-4">
               {EVENT_CONFIG.type}
             </p>
             <p className="text-sm text-slate-500 leading-relaxed">
@@ -22,7 +22,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className="md:col-span-1">
-            <h4 className="text-xs font-mono tracking-[0.3em] text-slate-500 uppercase mb-6">
+            <h4 className="text-xs tracking-[0.3em] text-slate-500 uppercase mb-6">
               Quick Links
             </h4>
             <ul className="space-y-3">
@@ -41,7 +41,7 @@ export function Footer() {
 
           {/* Event Info */}
           <div className="md:col-span-1">
-            <h4 className="text-xs font-mono tracking-[0.3em] text-slate-500 uppercase mb-6">
+            <h4 className="text-xs tracking-[0.3em] text-slate-500 uppercase mb-6">
               Event Info
             </h4>
             <ul className="space-y-3 text-sm text-slate-400">
@@ -71,7 +71,7 @@ export function Footer() {
             <p className="text-xs text-slate-600">
               &copy; {currentYear} {EVENT_CONFIG.name} • {EVENT_CONFIG.institution.name}
             </p>
-            <p className="text-xs text-slate-600 font-mono tracking-wider">
+            <p className="text-xs text-slate-600 tracking-wider">
               {EVENT_CONFIG.type} • {EVENT_CONFIG.date} {EVENT_CONFIG.year}
             </p>
           </div>

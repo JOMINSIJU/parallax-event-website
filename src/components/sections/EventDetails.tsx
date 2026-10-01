@@ -48,14 +48,10 @@ export function EventDetails() {
                 <div className="text-3xl mb-4" aria-hidden="true">
                   {detail.icon}
                 </div>
-                <p className="text-xs font-mono tracking-[0.3em] text-[#38bdf8]/60 uppercase mb-3">
+                <p className="text-xs tracking-[0.3em] text-[#38bdf8]/60 uppercase mb-3">
                   {detail.label}
                 </p>
-                <p
-                  className={`text-white font-medium leading-snug ${
-                    detail.mono ? "font-mono text-lg tracking-wider" : "text-sm"
-                  }`}
-                >
+                <p className="text-sm text-white font-medium leading-snug">
                   {detail.value}
                 </p>
               </GlassCard>

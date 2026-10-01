@@ -98,7 +98,7 @@ export function Rounds() {
                       {round.tags.map((tag) => (
                         <span
                           key={tag}
-                          className={`text-[10px] font-mono tracking-wider px-3 py-1 rounded-full border ${accent.tagBg}`}
+                          className={`text-[10px] tracking-wider px-3 py-1 rounded-full border ${accent.tagBg}`}
                         >
                           {tag}
                         </span>
@@ -118,7 +118,7 @@ export function Rounds() {
               href={EVENT_CONFIG.brochureUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 px-8 py-4 text-sm font-mono tracking-[0.15em] text-white uppercase rounded-xl border border-[#38bdf8]/30 bg-white/[0.03] hover:bg-[#38bdf8]/10 hover:border-[#38bdf8]/50 transition-all duration-500 hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-3 px-8 py-4 text-sm tracking-[0.15em] text-white uppercase rounded-xl border border-[#38bdf8]/30 bg-white/[0.03] hover:bg-[#38bdf8]/10 hover:border-[#38bdf8]/50 transition-all duration-500 hover:-translate-y-0.5"
             >
               <span>View Full Round Details</span>
               <span className="transition-transform duration-300 group-hover:translate-x-1">

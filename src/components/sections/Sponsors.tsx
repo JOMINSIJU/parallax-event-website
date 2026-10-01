@@ -32,7 +32,7 @@ export function Sponsors() {
               </p>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#38bdf8]/10 border border-[#38bdf8]/20">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#38bdf8] animate-pulse" />
-                <span className="text-[10px] font-mono tracking-wider text-[#38bdf8] uppercase">
+                <span className="text-[10px] tracking-wider text-[#38bdf8] uppercase">
                   To Be Updated
                 </span>
               </div>

@@ -7,7 +7,7 @@
 
 export const EVENT_CONFIG = {
   // ── Core Identity ──────────────────────────────────────────────────────
-  name: "PARALLAX",
+  name: "Parallax'26",
   type: "Promptathon",
   tagline: "Decode, Adapt, Sustain.",
   date: "16th October",
@@ -66,10 +66,10 @@ export const EVENT_CONFIG = {
 
   // ── About Section ──────────────────────────────────────────────────────
   about: {
-    title: "About PARALLAX",
+    title: "About Parallax'26",
     paragraphs: [
-      "PARALLAX is a Generative AI and Prompt Engineering competition that challenges participants to think beyond conventional approaches. Compete across three intense rounds designed to test your ability to communicate with cutting-edge AI systems.",
-      "Whether you're a seasoned prompt engineer or just beginning to explore the world of AI, PARALLAX offers a platform to showcase your skills, learn from peers, and push the boundaries of what's possible with intelligent systems.",
+      "Parallax'26 is a Generative AI and Prompt Engineering competition that challenges participants to think beyond conventional approaches. Compete across three intense rounds designed to test your ability to communicate with cutting-edge AI systems.",
+      "Whether you're a seasoned prompt engineer or just beginning to explore the world of AI, Parallax'26 offers a platform to showcase your skills, learn from peers, and push the boundaries of what's possible with intelligent systems.",
     ],
   },
 
@@ -165,11 +165,11 @@ export const EVENT_CONFIG = {
 
   // ── SEO / Meta ─────────────────────────────────────────────────────────
   meta: {
-    title: "PARALLAX 2026 — Promptathon | Kristu Jayanti Deemed To Be University",
+    title: "Parallax'26 — Promptathon | Kristu Jayanti Deemed To Be University",
     description:
-      "PARALLAX is an Inter Collegiate Promptathon Fest on 16th October 2026 at Kristu Jayanti Deemed To Be University. Compete across three rounds of AI prompt engineering challenges.",
+      "Parallax'26 is a National Level Inter University Promptathon Event on 16th October 2026 at Kristu Jayanti Deemed To Be University. Compete across three rounds of AI prompt engineering challenges.",
     keywords: [
-      "PARALLAX",
+      "Parallax'26",
       "Promptathon",
       "AI",
       "Prompt Engineering",

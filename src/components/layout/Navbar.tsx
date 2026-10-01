@@ -53,7 +53,7 @@ export function Navbar() {
               <span className="text-xl font-display font-bold tracking-[0.15em] text-white group-hover:text-[#38bdf8] transition-colors duration-300">
                 {EVENT_CONFIG.name}
               </span>
-              <span className="hidden sm:inline-block text-[10px] font-mono tracking-[0.2em] text-[#8b5cf6]/60 uppercase border border-[#8b5cf6]/20 rounded px-2 py-0.5">
+              <span className="hidden sm:inline-block text-[10px] tracking-[0.2em] text-[#8b5cf6]/60 uppercase border border-[#8b5cf6]/20 rounded px-2 py-0.5">
                 {EVENT_CONFIG.type}
               </span>
             </a>
