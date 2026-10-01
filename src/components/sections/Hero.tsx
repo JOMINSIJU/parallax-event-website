@@ -60,8 +60,20 @@ export function Hero() {
           </p>
         </div>
 
+        {/* Promptathon 2026 — big text */}
+        <div className="mb-3 md:mb-4 animate-fade-in-up">
+          <span className="text-3xl sm:text-5xl md:text-6xl font-display font-bold tracking-[0.15em] text-white">
+            {EVENT_CONFIG.type} {EVENT_CONFIG.year}
+          </span>
+        </div>
+
+        {/* National Level Event Line */}
+        <p className="text-sm sm:text-lg md:text-xl text-slate-300 tracking-wide mb-4 md:mb-6 animate-fade-in-up animation-delay-200 px-4 font-medium uppercase tracking-[0.1em]">
+          {EVENT_CONFIG.fullEventLine}
+        </p>
+
         {/* PARALLAX Logo Image */}
-        <div className="mb-4 md:mb-6 animate-fade-in-up">
+        <div className="mb-4 md:mb-6 animate-fade-in-up animation-delay-400">
           <Image
             src={EVENT_CONFIG.logos.parallax}
             alt="PARALLAX — The Promptathon Challenge"
@@ -72,21 +84,14 @@ export function Hero() {
           />
         </div>
 
-        {/* Year */}
-        <div className="mb-3 md:mb-4 animate-fade-in-up animation-delay-200">
-          <span className="text-2xl sm:text-4xl md:text-5xl font-display font-bold tracking-[0.15em] text-white/90">
-            {EVENT_CONFIG.type} {EVENT_CONFIG.year}
-          </span>
-        </div>
-
         {/* Tagline */}
-        <p className="text-base sm:text-xl md:text-2xl bg-gradient-to-r from-[#38bdf8] via-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent font-display tracking-[0.05em] sm:tracking-[0.1em] mb-3 md:mb-4 animate-fade-in-up animation-delay-400">
+        <p className="text-base sm:text-xl md:text-2xl bg-gradient-to-r from-[#38bdf8] via-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent font-display tracking-[0.05em] sm:tracking-[0.1em] mb-3 md:mb-4 animate-fade-in-up animation-delay-600">
           {EVENT_CONFIG.tagline}
         </p>
 
-        {/* Event Line */}
-        <p className="text-xs sm:text-sm md:text-base text-slate-400 tracking-wide mb-4 animate-fade-in-up animation-delay-600 px-4">
-          {EVENT_CONFIG.fullEventLine}
+        {/* Date */}
+        <p className="text-sm sm:text-base md:text-lg text-slate-400 tracking-wide animate-fade-in-up animation-delay-600 font-mono">
+          {EVENT_CONFIG.date} {EVENT_CONFIG.year}
         </p>
       </div>
     </section>

@@ -47,7 +47,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-slate-400">
               <li className="flex items-start gap-2">
                 <span className="text-[#38bdf8] mt-0.5">◆</span>
-                <span>{EVENT_CONFIG.date}</span>
+                <span>{EVENT_CONFIG.date} {EVENT_CONFIG.year}</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#38bdf8] mt-0.5">◆</span>

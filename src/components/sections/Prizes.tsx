@@ -32,7 +32,7 @@ export function Prizes() {
               <GlassCard
                 className={`p-8 text-center ${
                   index === 0
-                    ? "md:-translate-y-4 border-amber-500/20 hover:border-amber-500/40"
+                    ? "border-amber-500/20 hover:border-amber-500/40"
                     : ""
                 }`}
                 variant={index === 0 ? "accent" : "default"}

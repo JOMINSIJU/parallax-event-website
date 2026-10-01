@@ -9,10 +9,10 @@ export const EVENT_CONFIG = {
   // ── Core Identity ──────────────────────────────────────────────────────
   name: "PARALLAX",
   type: "Promptathon",
-  tagline: "Decode, Recreate, Create.",
+  tagline: "Decode, Adapt, Sustain.",
   date: "16th October",
   year: "2026",
-  fullEventLine: "National Level Inter University Event on 16th October 2026",
+  fullEventLine: "National Level Inter University Event",
 
   // ── Institution ────────────────────────────────────────────────────────
   institution: {
@@ -22,15 +22,25 @@ export const EVENT_CONFIG = {
     department: "Department of Computational Studies",
   },
 
-  // ── Club ────────────────────────────────────────────────────────────────
-  club: {
-    name: "AIVORA",
-    tagline: "AI & Machine Learning Club",
-    description: [
-      "Aivora is the AI and Machine Learning Club of the School of Computational and Physical Sciences, Department of Computational Studies at Kristu Jayanti Deemed to be University, created to bring together students passionate about Artificial Intelligence, Machine Learning, and emerging technologies.",
-      "Through technical events, workshops, competitions, research initiatives, and hands-on learning, Aivora provides a platform for students to learn, experiment, collaborate, and build with AI.",
-    ],
-  },
+  // ── Clubs ───────────────────────────────────────────────────────────────
+  clubs: [
+    {
+      name: "AIVORA",
+      tagline: "Artificial Intelligence And Machine Learning Club",
+      description: [
+        "Aivora is the AI and Machine Learning Club of the School of Computational and Physical Sciences, Department of Computational Studies at Kristu Jayanti Deemed to be University, created to bring together students passionate about Artificial Intelligence, Machine Learning, and emerging technologies.",
+        "Through technical events, workshops, competitions, research initiatives, and hands-on learning, Aivora provides a platform for students to learn, experiment, collaborate, and build with AI.",
+      ],
+    },
+    {
+      name: "DataSphere",
+      tagline: "Data Science Club",
+      description: [
+        "DataSphere is a student-led club for data science students, built to give them a space to learn beyond the classroom. It exists to bridge the gap between theory and practice, giving students hands-on exposure to how data works in the real world.",
+        "The club runs guest lectures, practical hands-on sessions, datathons, and study jams, so members get to learn from industry voices, build real skills, and tackle problems together. Whether you're just starting out or already deep into data, DataSphere is a place to explore, collaborate, and grow with people who share the same interest.",
+      ],
+    },
+  ],
 
   // ── Venue ──────────────────────────────────────────────────────────────
   venue: {
@@ -56,7 +66,7 @@ export const EVENT_CONFIG = {
 
   // ── About Section ──────────────────────────────────────────────────────
   about: {
-    title: "What is PARALLAX?",
+    title: "About PARALLAX",
     paragraphs: [
       "PARALLAX is a Generative AI and Prompt Engineering competition that challenges participants to think beyond conventional approaches. Compete across three intense rounds designed to test your ability to communicate with cutting-edge AI systems.",
       "Whether you're a seasoned prompt engineer or just beginning to explore the world of AI, PARALLAX offers a platform to showcase your skills, learn from peers, and push the boundaries of what's possible with intelligent systems.",
@@ -146,7 +156,7 @@ export const EVENT_CONFIG = {
   navLinks: [
     { label: "Home", href: "#hero" },
     { label: "About", href: "#about" },
-    { label: "AIVORA", href: "#club" },
+    { label: "Clubs", href: "#club" },
     { label: "Details", href: "#details" },
     { label: "Rounds", href: "#rounds" },
     { label: "Prizes", href: "#prizes" },

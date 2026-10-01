@@ -4,7 +4,7 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 
 export function AboutClub() {
-  const { club } = EVENT_CONFIG;
+  const { clubs } = EVENT_CONFIG;
 
   return (
     <section
@@ -16,37 +16,39 @@ export function AboutClub() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimateOnScroll>
-          <SectionHeading
-            title="Know About the Club"
-          />
+          <SectionHeading title="About the Clubs" />
         </AnimateOnScroll>
 
-        <AnimateOnScroll variant="fade-up">
-          <GlassCard className="max-w-4xl mx-auto p-8 md:p-12" variant="accent">
-            <div className="text-center mb-8">
-              <h3 className="text-4xl md:text-5xl font-display font-bold text-white tracking-wide mb-2">
-                {club.name}
-              </h3>
-              <p className="text-sm font-mono tracking-[0.3em] text-[#38bdf8]/60 uppercase">
-                {club.tagline}
-              </p>
-              <p className="text-xs text-slate-500 mt-2">
-                {EVENT_CONFIG.institution.school} • {EVENT_CONFIG.institution.department}
-              </p>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+          {clubs.map((club, index) => (
+            <AnimateOnScroll key={club.name} variant="fade-up" delay={index * 150}>
+              <GlassCard className="p-6 md:p-10 h-full" variant="accent">
+                <div className="text-center mb-6">
+                  <h3 className="text-3xl md:text-4xl font-display font-bold text-white tracking-wide mb-2">
+                    {club.name}
+                  </h3>
+                  <p className="text-sm tracking-[0.2em] text-[#38bdf8]/60 uppercase">
+                    {club.tagline}
+                  </p>
+                  <p className="text-xs text-slate-500 mt-2">
+                    {EVENT_CONFIG.institution.school} • {EVENT_CONFIG.institution.department}
+                  </p>
+                </div>
 
-            <div className="space-y-4">
-              {club.description.map((paragraph, index) => (
-                <p
-                  key={index}
-                  className="text-slate-400 leading-relaxed text-base"
-                >
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-          </GlassCard>
-        </AnimateOnScroll>
+                <div className="space-y-4">
+                  {club.description.map((paragraph, i) => (
+                    <p
+                      key={i}
+                      className="text-sm sm:text-base text-slate-400 leading-relaxed"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </GlassCard>
+            </AnimateOnScroll>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -39,7 +39,7 @@ export function Registration() {
               </h2>
 
               <p className="text-sm sm:text-base md:text-lg text-slate-400 mb-6 md:mb-10 max-w-xl mx-auto leading-relaxed">
-                Secure your spot at {EVENT_CONFIG.name} — the ultimate {EVENT_CONFIG.type} challenge
+                Secure your spot at Parallax&apos;26 — the ultimate {EVENT_CONFIG.type} challenge
                 at {EVENT_CONFIG.institution.name}.
               </p>
 
