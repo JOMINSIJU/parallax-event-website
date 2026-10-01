@@ -11,7 +11,7 @@
 /* ── Tailwind v4 Theme ─────────────────────────────────────────────────────── */
 @theme {
   --font-display: "Bell MT", "EB Garamond", "Playfair Display", Georgia, serif;
-  --font-body: "Goudy Old Style", "Sorts Mill Goudy", "Lora", Georgia, serif;
+  --font-body: "Times New Roman", "Goudy Old Style", "Sorts Mill Goudy", Georgia, serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   --color-bg-primary: #030308;
@@ -70,6 +70,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  font-variant-numeric: lining-nums;
 }
 
 h1, h2, h3, h4, h5, h6 {
